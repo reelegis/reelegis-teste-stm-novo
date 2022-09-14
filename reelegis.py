@@ -359,7 +359,7 @@ if pol_part == 'Político':
             # site com as cores: https://plotly.com/python/builtin-colorscales/
             labels=dict(label_pt="", prop_mean="Ênfase Temática %"), orientation='h')
             estado_parla.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
-            st.plotly_chart(estado_parla)
+            st.plotly_chart(estado_parla, use_container_width=True)
 
             #p2 = round(posit2.iloc[0], 3)
             #n_proposta_uf = enf_tematica_deputado.index
