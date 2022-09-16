@@ -414,8 +414,6 @@ if pol_part == 'Político':
                 st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
                 st.success(ementa_maior)
 
-                st.success(ementa_maior)
-                #st.write(ementa_maior)
                 #ementa_maior
                 #maior = pd.DataFrame(sorteio[['ementa', 'prop']]).max()
                 #ementa_maior=maior.iloc[0]
