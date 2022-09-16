@@ -22,7 +22,7 @@ with col2:
 
 st.text("Versão beta 🐟 v.0.0.3")
 
-st.text('Última atualização em 16/09/2022')
+st.text('Última atualização em 13/09/2022')
 
 ## base de dados do político
 #@st.cache(ttl=60*60*24)
@@ -672,3 +672,4 @@ if pol_part == 'Partido':
                     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
             local_css("style.css")
 # google analytics aqui!
+
