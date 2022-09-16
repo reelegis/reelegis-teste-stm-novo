@@ -60,10 +60,10 @@ st.markdown('[Aqui, você pode retornar ao site.](https://reelegis.netlify.app)'
 
 
 st.header('Nessas eleições, você prefere votar no Político ou no Partido para o cargo de Deputado/a Federal?')
-listas_temas = ['Administração Pública', 'Agricultura', 'Assistência Social', 'Covid-19', 'Defesa',
-'Educação', 'Eleições e Democracia', 'Energia', 'Infraestrutura', 'Judiciário', 'Lei e Crime', 'Macroeconomia',
-'Meio Ambiente', 'Minorias', 'Mulheres', 'Saúde', 'Segurança', 'Comércio e Serviços', 'Trabalho',
-'Transporte', 'Tributação']
+#listas_temas = ['Administração Pública', 'Agricultura', 'Assistência Social', 'Covid-19', 'Defesa',
+#'Educação', 'Eleições e Democracia', 'Energia', 'Infraestrutura', 'Judiciário', 'Lei e Crime', 'Macroeconomia',
+#'Meio Ambiente', 'Minorias', 'Mulheres', 'Saúde', 'Segurança', 'Comércio e Serviços', 'Trabalho',
+#'Transporte', 'Tributação']
 pol_part = st.radio("Escolha uma opção", ['','Político', 'Partido'], key='1')
 df2 = df[df.nomeUrna != 'Não está concorrendo']
 df2 = df2.dropna()
@@ -359,7 +359,7 @@ if pol_part == 'Político':
             # site com as cores: https://plotly.com/python/builtin-colorscales/
             labels=dict(label_pt="", prop_mean="Ênfase Temática %"), orientation='h')
             estado_parla.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
-            st.plotly_chart(estado_parla, use_container_width=True)
+            st.plotly_chart(estado_parla)
 
             #p2 = round(posit2.iloc[0], 3)
             #n_proposta_uf = enf_tematica_deputado.index
@@ -383,26 +383,38 @@ if pol_part == 'Político':
             #st.info(f'{escolha_parlamentar_do_estado} obteve maior ênfase temática em **{rotulo.to_string(index=False)}**, com **{porcentagem}%**.')
                 ## conhecer as Propostas
             st.title(f'Conheça as propostas apresentadas por {escolha_parlamentar_do_estado}')
-
-
+            st.warning(f'Veja algumas propostas dos temas mais enfatizados pel{genero.index[0]}.')
+            #st.warning(f'Veja as propostas d{genero.index[0]} pelos três temas mais enfatizados.')
+            def load_ementa():
+                data_ementa_nova = pd.read_excel('ementas_todas_cand-2.xlsx')
+                #data_ementa = pd.read_excel('https://docs.google.com/spreadsheets/d/11m7psGkn4pOe9oXhyM0xbYQwKpdhA6Fr771Mkme1R3w/edit?usp=sharing')
+                return data_ementa_nova
+            data_ementa = load_ementa()
+            data_ementa = data_ementa.dropna()
+            tema_parlamentar = data_ementa.loc[data_ementa.nomeUrna == escolha_parlamentar_do_estado, :]
+            tema_parlamentar = tema_parlamentar['label_pt'].unique()
+            #st.table(tema_parlamentar)
                 #st.checkbox('Consultar propostas apresentadas deste Parlamentar por tema', False):
-            tema = listas_temas
-            tema = np.append(tema, '')
+            #tema = lista_temas
+            tema = np.append(tema_parlamentar, '')
             tema.sort()
             random_tema = st.radio("Escolha o Tema", tema)
             if random_tema != '':
-                def load_ementa():
-                    data_ementa = pd.read_excel('ementas_todas_cand-2.xlsx')
-                    #data_ementa = pd.read_excel('https://docs.google.com/spreadsheets/d/11m7psGkn4pOe9oXhyM0xbYQwKpdhA6Fr771Mkme1R3w/edit?usp=sharing')
-                    return data_ementa
                 inteiro_teor = load_ementa()
                 localizar_parlamentar = inteiro_teor.loc[inteiro_teor.nomeUrna == escolha_parlamentar_do_estado, :]
                 random_val = localizar_parlamentar.loc[localizar_parlamentar.label_pt == random_tema, :]
                 sorteio = random_val.loc[random_val.label_pt == random_tema]
-                maior = pd.DataFrame(sorteio[['ementa' ,'label_pt', 'prop']]).sort_values(by = ['prop'],
-                ascending=False)
+
+                maior = pd.DataFrame(sorteio[['ementa' ,'label_pt']])
                 #maior_enfase_percent = maior.iloc[:1]
                 ementa_maior = maior['ementa'].iloc[0]
+                ementa_explicacao = pd.DataFrame(data=random_val['explicacao_tema'].value_counts())
+
+                st.write(ementa_explicacao.index[0])
+                st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
+                st.success(ementa_maior)
+
+                st.success(ementa_maior)
                 #st.write(ementa_maior)
                 #ementa_maior
                 #maior = pd.DataFrame(sorteio[['ementa', 'prop']]).max()
@@ -412,90 +424,6 @@ if pol_part == 'Político':
 
                     #max_percent = max(sorteio['maior_prob'].items(), key=lambda i: i[1])
                     #st.write(max_percent)
-                if random_tema == 'Administração Pública':
-                    st.write('O conteúdo do tema trata da Administração do Estado brasileiro, relações entre os entes federados (União, Estados e Municípios), organização da burocracia e dos poderes Legislativo e Executivo, nomeações, homenagens e quaisquer outras atividades do cotidiano do Governo.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema == 'Agricultura':
-                    st.write('O conteúdo do tema trata de questões relacionadas à agricultura, caça e pesca, subsídios do Estado brasileiro para médios e pequenos agricultores, incentivos à Agricultura Familiar e assuntos relacionados ao comércio agrícola.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema == 'Assistência Social':
-                    st.write('O conteúdo do tema versa sobre políticas que visam fomentar o desenvolvimento social e assistência social para os cidadãos.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema == 'Covid-19':
-                    st.write('O conteúdo do tema aborda a gestão da Pandemia, a regulação de atividades de linha de frente ou outras atividades da sociedade brasileira que foram afetadas pela COVID-19, como a assistência social em decorrência ao período da crise sanitária e afins.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema == 'Defesa':
-                    st.write('O conteúdo do tema versa sobre a questão da organização das Forças Armadas, recursos orçamentários e políticas que envolvam a defesa do Estado brasileiro.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema == 'Educação':
-                    st.write('O conteúdo do tema trata de políticas educacionais de nível superior, técnico, médio, fundamental e infantil, assim como demais questões relacionadas ao desempenho e implementação de práticas educacionais.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema == 'Eleições e Democracia':
-                    st.write('O conteúdo do tema trata da legislação eleitoral, de regras para campanhas eleitorais, normas, regulação do Fundo Partidário e assuntos relacionados às eleições.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema == 'Energia':
-                    st.write('O conteúdo do tema trata de questões como a regulamentação de políticas energéticas, redes elétricas e assuntos relacionados ao uso de petróleo e gás, e outros derivados.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema == 'Infraestrutura':
-                    st.write('O conteúdo do tema trata de questões relacionadas ao setor de telecomunicações, internet, internet móvel e ao setor elétrico do país.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema == 'Judiciário':
-                    st.write('O conteúdo do tema aborda questões relacionadas ao Poder Judiciário e ao funcionamento e organização desta instituição. Bem como o funcionamento e atuação do Ministério Público.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema == 'Lei e Crime':
-                    st.write('O conteúdo do tema trata de reformulações nos códigos civis e penais, combate à corrupção, tráfico de drogas, crimes comuns e assuntos relacionados à proteção de crianças, adolescentes e idosos.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema == 'Macroeconomia':
-                    st.write('O conteúdo do tema trata do desenvolvimento econômico, da atuação do Banco Central, política monetária e do desenvolvimento de atividades industriais.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema == 'Meio Ambiente':
-                    st.write('O conteúdo do tema aborda políticas de preservação ambiental e regulação de atividades em área de preservação.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema == 'Minorias':
-                    st.write('O conteúdo do tema trata de questões relacionadas a minorias étnicas sociais, como a população afrobrasileira, os povos originários e representantes de minorias sexuais como a comunidade LGBTQIAP+. Esse tópico apresenta políticas de combate à descriminação e ações afirmativas para essas comunidades.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema == 'Mulheres':
-                    st.write('O conteúdo do tema aborda assuntos relacionados ao combate à violência contra mulher e a proteção de sua  integridade moral, física e social.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema == 'Saúde':
-                    st.write('O conteúdo do tema trata do SUS, planos de saúde, assuntos relacionados às políticas de atenção básica, a regulação de atividades profissionais deste setor, procedimentos e tratamentos na área.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema == 'Segurança':
-                    st.write('O conteúdo do tema trata de políticas relacionadas aos agentes e instituições que atuam na implementação da lei.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema == 'Comércio e Serviços':
-                    st.write('O conteúdo do tema trata da regulação do setor de serviços, da atividade de pequenas e microempresas, de políticas de incentivo ao microempreendedor e ações que orientem e garantam o direito do consumidor.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema == 'Trabalho':
-                    st.write('O conteúdo do tema trata da regulamentação do trabalho, de suas condições, criação e consolidação dos direitos trabalhistas e políticas de incentivo ao emprego.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema == 'Transporte':
-                    st.write('O conteúdo do tema trata das políticas referentes a diferentes modais (terrestre, ferroviário, marinho e aéreo), manutenção de rodovias e políticas de sobre o uso do transporte público.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema == 'Tributação':
-                    st.write('O conteúdo do tema trata de assuntos tributários e questões fiscais, como impostos, reformas e incentivos tributários para empresas e indústrias.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
-                    st.success(f'{ementa_maior}')
 
 
                 #ementa = pd.DataFrame(data=random_val['explicacao_tema'].value_counts())
@@ -694,121 +622,37 @@ if pol_part == 'Partido':
 
             ## conhecer as Propostas
             st.title(f'Conheça as propostas apresentadas pelo {escolha_partido_do_estado}')
+            st.warning(f'Veja algumas propostas dos temas mais enfatizados pelo Partido.')
+            def load_ementa():
+                data_ementa_nova = pd.read_excel('ementas_todas_part-2.xlsx')
+                #data_ementa = pd.read_excel('https://docs.google.com/spreadsheets/d/11m7psGkn4pOe9oXhyM0xbYQwKpdhA6Fr771Mkme1R3w/edit?usp=sharing')
+                return data_ementa_nova
+            inteiro_teor = load_ementa()
+            inteiro_teor = inteiro_teor.dropna()
+            localizar_estado = inteiro_teor.loc[inteiro_teor.estado == uf_escolha, :]
+            localizar_partido = localizar_estado.loc[localizar_estado.partido_ext_sigla == escolha_partido_do_estado, :]
 
-
+            tema_parlamentar = localizar_partido['label_pt'].unique()
+            #st.table(tema_parlamentar)
                 #st.checkbox('Consultar propostas apresentadas deste Parlamentar por tema', False):
-            tema_partido = listas_temas
-            tema_partido = np.append(tema_partido, '')
-            tema_partido.sort()
-            random_tema_part = st.radio("Escolha o Tema", tema_partido)
+            #tema = lista_temas
+            tema = np.append(tema_parlamentar, '')
+            tema.sort()
+                #st.checkbox('Consultar propostas apresentadas deste Parlamentar por tema', False):
+            #tema_partido = np.append(tema_partido, '')
+            #tema_partido.sort()
+            random_tema_part = st.radio("Escolha o Tema", tema)
             if random_tema_part != '':
-                def load_ementa():
-                    data_ementa = pd.read_excel('ementas_todas_cand-2.xlsx')
-                    #data_ementa = pd.read_excel('https://docs.google.com/spreadsheets/d/11m7psGkn4pOe9oXhyM0xbYQwKpdhA6Fr771Mkme1R3w/edit?usp=sharing')
-                    return data_ementa
-                inteiro_teor = load_ementa()
-                localizar_estado = inteiro_teor.loc[inteiro_teor.estado == uf_escolha, :]
-                localizar_partido = localizar_estado.loc[localizar_estado.partido_ext_sigla == escolha_partido_do_estado, :]
-
                 random_val = localizar_partido.loc[localizar_partido.label_pt == random_tema_part, :]
                 sorteio = random_val.loc[random_val.label_pt == random_tema_part]
-                maior = pd.DataFrame(sorteio[['ementa' ,'label_pt', 'prop']]).sort_values(by = ['prop'],
-                ascending=False)
+                maior = pd.DataFrame(sorteio[['ementa' ,'label_pt']])
                 #maior_enfase_percent = maior.iloc[:1]
                 ementa_maior = maior['ementa'].iloc[0]
-                #st.write(ementa_maior)
-                #ementa_maior
-                #maior = pd.DataFrame(sorteio[['ementa', 'prop']]).max()
-                #ementa_maior=maior.iloc[0]
-                #probabilidade_maior=int((maior.iloc[1] * 100))
-                    #st.write(probabilidade_maior)
+                ementa_explicacao = pd.DataFrame(data=random_val['explicacao_tema'].value_counts())
+                st.write(ementa_explicacao.index[0])
+                st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
+                st.success(ementa_maior)
 
-                    #max_percent = max(sorteio['maior_prob'].items(), key=lambda i: i[1])
-                    #st.write(max_percent)
-                if random_tema_part == 'Administração Pública':
-                    st.write('O conteúdo do tema trata da Administração do Estado brasileiro, relações entre os entes federados (União, Estados e Municípios), organização da burocracia e dos poderes Legislativo e Executivo, nomeações, homenagens e quaisquer outras atividades do cotidiano do Governo.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema_part == 'Agricultura':
-                    st.write('O conteúdo do tema trata de questões relacionadas à agricultura, caça e pesca, subsídios do Estado brasileiro para médios e pequenos agricultores, incentivos à Agricultura Familiar e assuntos relacionados ao comércio agrícola.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema_part == 'Assistência Social':
-                    st.write('O conteúdo do tema versa sobre políticas que visam fomentar o desenvolvimento social e assistência social para os cidadãos.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema_part == 'Covid-19':
-                    st.write('O conteúdo do tema aborda a gestão da Pandemia, a regulação de atividades de linha de frente ou outras atividades da sociedade brasileira que foram afetadas pela COVID-19, como a assistência social em decorrência ao período da crise sanitária e afins.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema_part == 'Defesa':
-                    st.write('O conteúdo do tema versa sobre a questão da organização das Forças Armadas, recursos orçamentários e políticas que envolvam a defesa do Estado brasileiro.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema_part == 'Educação':
-                    st.write('O conteúdo do tema trata de políticas educacionais de nível superior, técnico, médio, fundamental e infantil, assim como demais questões relacionadas ao desempenho e implementação de práticas educacionais.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema_part == 'Eleições e Democracia':
-                    st.write('O conteúdo do tema trata da legislação eleitoral, de regras para campanhas eleitorais, normas, regulação do Fundo Partidário e assuntos relacionados às eleições.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema_part == 'Energia':
-                    st.write('O conteúdo do tema trata de questões como a regulamentação de políticas energéticas, redes elétricas e assuntos relacionados ao uso de petróleo e gás, e outros derivados.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema_part == 'Infraestrutura':
-                    st.write('O conteúdo do tema trata de questões relacionadas ao setor de telecomunicações, internet, internet móvel e ao setor elétrico do país.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema_part == 'Judiciário':
-                    st.write('O conteúdo do tema aborda questões relacionadas ao Poder Judiciário e ao funcionamento e organização desta instituição. Bem como o funcionamento e atuação do Ministério Público.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema_part == 'Lei e Crime':
-                    st.write('O conteúdo do tema trata de reformulações nos códigos civis e penais, combate à corrupção, tráfico de drogas, crimes comuns e assuntos relacionados à proteção de crianças, adolescentes e idosos.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema_part == 'Macroeconomia':
-                    st.write('O conteúdo do tema trata do desenvolvimento econômico, da atuação do Banco Central, política monetária e do desenvolvimento de atividades industriais.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema_part == 'Meio Ambiente':
-                    st.write('O conteúdo do tema aborda políticas de preservação ambiental e regulação de atividades em área de preservação.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema_part == 'Minorias':
-                    st.write('O conteúdo do tema trata de questões relacionadas a minorias étnicas sociais, como a população afrobrasileira, os povos originários e representantes de minorias sexuais como a comunidade LGBTQIAP+. Esse tópico apresenta políticas de combate à descriminação e ações afirmativas para essas comunidades.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema_part == 'Mulheres':
-                    st.write('O conteúdo do tema aborda assuntos relacionados ao combate à violência contra mulher e a proteção de sua  integridade moral, física e social.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema_part == 'Saúde':
-                    st.write('O conteúdo do tema trata do SUS, planos de saúde, assuntos relacionados às políticas de atenção básica, a regulação de atividades profissionais deste setor, procedimentos e tratamentos na área.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema_part == 'Segurança':
-                    st.write('O conteúdo do tema trata de políticas relacionadas aos agentes e instituições que atuam na implementação da lei.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema_part == 'Comércio e Serviços':
-                    st.write('O conteúdo do tema trata da regulação do setor de serviços, da atividade de pequenas e microempresas, de políticas de incentivo ao microempreendedor e ações que orientem e garantam o direito do consumidor.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema_part == 'Trabalho':
-                    st.write('O conteúdo do tema trata da regulamentação do trabalho, de suas condições, criação e consolidação dos direitos trabalhistas e políticas de incentivo ao emprego.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema_part == 'Transporte':
-                    st.write('O conteúdo do tema trata das políticas referentes a diferentes modais (terrestre, ferroviário, marinho e aéreo), manutenção de rodovias e políticas de sobre o uso do transporte público.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
-                    st.success(f'{ementa_maior}')
-                if random_tema_part == 'Tributação':
-                    st.write('O conteúdo do tema trata de assuntos tributários e questões fiscais, como impostos, reformas e incentivos tributários para empresas e indústrias.')
-                    st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
-                    st.success(f'{ementa_maior}')
 
             st.header('📢  Conta pra gente!')
             st.warning('Fique à vontade para nos informar sobre algo que queria ter visto nesta aba ou sobre a plataforma, para melhorarmos no futuro!')
