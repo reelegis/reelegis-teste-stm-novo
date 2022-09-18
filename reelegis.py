@@ -328,6 +328,7 @@ if pol_part == 'Político':
                 return data_enfase
 
             enfase = load_enfase()
+            enfase = enfase.dropna()
             enf_tematica_deputado = enfase.loc[enfase.nomeUrna == escolha_parlamentar_do_estado, :]
 
             ### POSTS CANVA INSTAGRAM ###
@@ -382,7 +383,7 @@ if pol_part == 'Político':
             st.info(f'O tema de maior ênfase média nas propostas apresentadas pel{genero.index[0]} **{escolha_parlamentar_do_estado}** é **{rotulo.to_string(index=False)}**, com **{porcentagem}%** do total.')
             #st.info(f'{escolha_parlamentar_do_estado} obteve maior ênfase temática em **{rotulo.to_string(index=False)}**, com **{porcentagem}%**.')
                 ## conhecer as Propostas
-            st.title(f'Conheça as propostas apresentadas por {escolha_parlamentar_do_estado}')
+            st.title(f'Conheça propostas dos principais temas enfatizados por {escolha_parlamentar_do_estado}')
             st.warning(f'Veja algumas propostas dos temas mais enfatizados pel{genero.index[0]}.')
             #st.warning(f'Veja as propostas d{genero.index[0]} pelos três temas mais enfatizados.')
             def load_ementa():
@@ -390,6 +391,7 @@ if pol_part == 'Político':
                 #data_ementa = pd.read_excel('https://docs.google.com/spreadsheets/d/11m7psGkn4pOe9oXhyM0xbYQwKpdhA6Fr771Mkme1R3w/edit?usp=sharing')
                 return data_ementa_nova
             data_ementa = load_ementa()
+            data_ementa = data_ementa.dropna()
             data_ementa = data_ementa.dropna()
             tema_parlamentar = data_ementa.loc[data_ementa.nomeUrna == escolha_parlamentar_do_estado, :]
             tema_parlamentar = tema_parlamentar['label_pt'].unique()
@@ -411,7 +413,7 @@ if pol_part == 'Político':
                 ementa_explicacao = pd.DataFrame(data=random_val['explicacao_tema'].value_counts())
 
                 st.write(ementa_explicacao.index[0])
-                st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata **{random_tema}**.')
+                st.write(f'*Esta é uma proposta apresentada por* **{escolha_parlamentar_do_estado}** que trata de **{random_tema}**.')
                 st.success(ementa_maior)
 
                 #ementa_maior
@@ -619,14 +621,14 @@ if pol_part == 'Partido':
                 ## conhecer as Propostas
 
             ## conhecer as Propostas
-            st.title(f'Conheça as propostas apresentadas pelo {escolha_partido_do_estado}')
+            st.title(f'Conheça propostas dos principais temas enfatizados pelo {escolha_partido_do_estado}')
             st.warning(f'Veja algumas propostas dos temas mais enfatizados pelo Partido.')
             def load_ementa():
                 data_ementa_nova = pd.read_excel('ementas_todas_part-2.xlsx')
                 #data_ementa = pd.read_excel('https://docs.google.com/spreadsheets/d/11m7psGkn4pOe9oXhyM0xbYQwKpdhA6Fr771Mkme1R3w/edit?usp=sharing')
                 return data_ementa_nova
             inteiro_teor = load_ementa()
-            inteiro_teor = inteiro_teor.dropna()
+            inteiro_teor = inteiro_teor.dropna() # excluir vazio
             localizar_estado = inteiro_teor.loc[inteiro_teor.estado == uf_escolha, :]
             localizar_partido = localizar_estado.loc[localizar_estado.partido_ext_sigla == escolha_partido_do_estado, :]
 
@@ -648,7 +650,7 @@ if pol_part == 'Partido':
                 ementa_maior = maior['ementa'].iloc[0]
                 ementa_explicacao = pd.DataFrame(data=random_val['explicacao_tema'].value_counts())
                 st.write(ementa_explicacao.index[0])
-                st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata **{random_tema_part}**.')
+                st.write(f'*Esta é uma proposta apresentada por* **{escolha_partido_do_estado}** que trata de **{random_tema_part}**.')
                 st.success(ementa_maior)
 
 
@@ -669,5 +671,4 @@ if pol_part == 'Partido':
                 with open(file_name) as f:
                     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
             local_css("style.css")
-# google analytics aqui!
 
