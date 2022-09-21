@@ -31,7 +31,7 @@ st.text('Última atualização em 13/09/2022')
 #@st.cache(ttl=60*5,max_entries=20)
 
 def load_data():
-    data = pd.read_excel('[atualizacao]bd-reelegis-camara-CORRIGIDO.xlsx', index_col=0)
+    data = pd.read_excel('[atualizacao]bd-reelegis-camara-CORRIGIDO2.xlsx', index_col=0)
     return data
 
 df = load_data()
