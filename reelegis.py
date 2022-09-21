@@ -66,6 +66,7 @@ st.header('Nessas eleições, você prefere votar no Político ou no Partido par
 #'Transporte', 'Tributação']
 pol_part = st.radio("Escolha uma opção", ['','Político', 'Partido'], key='1')
 df2 = df[df.nomeUrna != 'Não está concorrendo']
+df2 = df2[df2.nomeUrna != 'David Miranda ( PDT )']
 df2 = df2.dropna()
 if pol_part == 'Político':
     st.header('Onde você vota?')
@@ -324,70 +325,94 @@ if pol_part == 'Político':
             ### AQUI VEM A BASE DA ÊNFASE!!
 
             def load_enfase():
-                data_enfase = pd.read_excel('enfase-tematica-bd-cand.xlsx')
+                data_enfase = pd.read_excel('enfase-tematica-bd-cand-novo.xlsx')
                 return data_enfase
 
             enfase = load_enfase()
             enfase = enfase.dropna()
             enf_tematica_deputado = enfase.loc[enfase.nomeUrna == escolha_parlamentar_do_estado, :]
+            quantidade_migracao = enf_tematica_deputado['siglaPartidoAutor'].nunique()
+            #st.write(quantidade_migracao)
+            if quantidade_migracao > 1:
+                enfase_grafico = enf_tematica_deputado[['siglaPartidoAutor', 'label_pt', 'prop_mean']]
+                #topicos = enf_tematica_deputado['label_pt']
+                enfase_grafico = enfase_grafico.groupby('label_pt').sum() / quantidade_migracao * 100
+                enfase_grafico = pd.DataFrame(enfase_grafico)
 
-            ### POSTS CANVA INSTAGRAM ###
-            #def load_enfase_post():
-            #    data_enfase_post = pd.read_excel('media-estados-POST.xlsx')
-            #    return data_enfase_post
 
-            #enfase_post = load_enfase_post()
-            #enf_tematica_post_estado = enfase_post.loc[enfase_post.estado == uf_escolha, :]
-            #enfase_grafico_POST = enf_tematica_post_estado[['label_pt', 'media_label']]
-            #enfase_grafico_POST.media_label = enfase_grafico_POST.media_label * 100
-            #estado_parla_POST = px.bar(enfase_grafico_POST, x='media_label', y='label_pt', height=500, color='media_label',
-            #color_continuous_scale=px.colors.sequential.Viridis,
-            #color_continuous_scale='Sunsetdark',
-            # site com as cores: https://plotly.com/python/builtin-colorscales/
-            #labels=dict(label_pt="", media_label="Ênfase Temática %"), orientation='h')
-            #estado_parla_POST.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
-            #st.plotly_chart(estado_parla_POST)
+                #enfase_grafico.prop_mean = sum(enfase_grafico.prop_mean)/2
+                #st.write(enfase_grafico)
+                #enfase_grafico.prop_mean = enfase_grafico.prop_mean * 100
+                estado_parla = px.bar(enfase_grafico, x='prop_mean', height=500, color='prop_mean',
+                #color_continuous_scale=px.colors.sequential.Viridis,
+                color_continuous_scale='Sunsetdark',
+                # site com as cores: https://plotly.com/python/builtin-colorscales/
+                labels=dict(label_pt="", prop_mean="Ênfase Temática %"), orientation='h')
+                estado_parla.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
+                st.plotly_chart(estado_parla, use_container_width=True)
+            #sorteio = random_val.loc[random_val.label_pt == random_tema]
+                maior_enfase = pd.DataFrame(enfase_grafico[['prop_mean']]).sort_values(by = ['prop_mean'],
+                ascending=False)
 
+            #first = maior_enfase.iloc[:-1].round()
+
+            #maior_enfase_label = maior_enfase.iloc[0]
+                maior_enfase_percent = maior_enfase.iloc[:1]
+                #rotulo = maior_enfase_percent['label_pt'].iloc[:0]
+                porcentagem = int(maior_enfase_percent['prop_mean'].iloc[:1])
+            #st.write(maior_enfase_label)
+
+
+
+            #st.info(f'**{escolha_parlamentar_do_estado}** apresentou **{str(n_proposta_uf)} propostas legislativas** ao total. A maior ênfase temática d{genero.index[0]} foi **{saliente_uf.index[0]}**, com aproximadamente **{first}% do total.**')
+                st.info(f'O tema de maior ênfase média nas propostas apresentadas pel{genero.index[0]} **{escolha_parlamentar_do_estado}** é **{maior_enfase_percent.index[0]}**, com **{porcentagem}%** do total.')
+
+
+
+            else:
+
+            #quantidade_migracao = quantidade_migracao.nunique()
+                st.write(quantidade_migracao)
 
             #st.table(enf_tematica_deputado)
-            enfase_grafico = enf_tematica_deputado[['label_pt', 'prop_mean']]
+                enfase_grafico = enf_tematica_deputado[['label_pt', 'prop_mean']]
 
-            enfase_grafico.prop_mean = enfase_grafico.prop_mean * 100
+                enfase_grafico.prop_mean = enfase_grafico.prop_mean * 100
             #st.table(enfase_grafico)
-            estado_parla = px.bar(enfase_grafico, x='prop_mean', y='label_pt', height=500, color='prop_mean',
+                estado_parla = px.bar(enfase_grafico, x='prop_mean', y='label_pt', height=500, color='prop_mean',
             #color_continuous_scale=px.colors.sequential.Viridis,
-            color_continuous_scale='Sunsetdark',
+                color_continuous_scale='Sunsetdark',
             # site com as cores: https://plotly.com/python/builtin-colorscales/
-            labels=dict(label_pt="", prop_mean="Ênfase Temática %"), orientation='h')
-            estado_parla.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
-            st.plotly_chart(estado_parla, use_container_width=True)
+                labels=dict(label_pt="", prop_mean="Ênfase Temática %"), orientation='h')
+                estado_parla.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
+                st.plotly_chart(estado_parla, use_container_width=True)
 
             #p2 = round(posit2.iloc[0], 3)
             #n_proposta_uf = enf_tematica_deputado.index
             #n_proposta_uf = len(n_proposta_uf)
 
             #sorteio = random_val.loc[random_val.label_pt == random_tema]
-            maior_enfase = pd.DataFrame(enf_tematica_deputado[['label_pt', 'prop_mean']]).sort_values(by = ['prop_mean'],
-            ascending=False)
+                maior_enfase = pd.DataFrame(enf_tematica_deputado[['label_pt', 'prop_mean']]).sort_values(by = ['prop_mean'],
+                ascending=False)
             #first = maior_enfase.iloc[:-1].round()
 
             #maior_enfase_label = maior_enfase.iloc[0]
-            maior_enfase_percent = maior_enfase.iloc[:1]
-            rotulo = maior_enfase_percent['label_pt'].iloc[:1]
-            porcentagem = int(maior_enfase_percent['prop_mean'].iloc[:1] * 100)
+                maior_enfase_percent = maior_enfase.iloc[:1]
+                rotulo = maior_enfase_percent['label_pt'].iloc[:1]
+                porcentagem = int(maior_enfase_percent['prop_mean'].iloc[:1] * 100)
             #st.write(maior_enfase_label)
 
 
 
             #st.info(f'**{escolha_parlamentar_do_estado}** apresentou **{str(n_proposta_uf)} propostas legislativas** ao total. A maior ênfase temática d{genero.index[0]} foi **{saliente_uf.index[0]}**, com aproximadamente **{first}% do total.**')
-            st.info(f'O tema de maior ênfase média nas propostas apresentadas pel{genero.index[0]} **{escolha_parlamentar_do_estado}** é **{rotulo.to_string(index=False)}**, com **{porcentagem}%** do total.')
+                st.info(f'O tema de maior ênfase média nas propostas apresentadas pel{genero.index[0]} **{escolha_parlamentar_do_estado}** é **{rotulo.to_string(index=False)}**, com **{porcentagem}%** do total.')
             #st.info(f'{escolha_parlamentar_do_estado} obteve maior ênfase temática em **{rotulo.to_string(index=False)}**, com **{porcentagem}%**.')
                 ## conhecer as Propostas
             st.title(f'Conheça propostas dos principais temas enfatizados por {escolha_parlamentar_do_estado}')
             st.warning(f'Veja algumas propostas dos temas mais enfatizados pel{genero.index[0]}.')
             #st.warning(f'Veja as propostas d{genero.index[0]} pelos três temas mais enfatizados.')
             def load_ementa():
-                data_ementa_nova = pd.read_excel('ementas_todas_cand-2.xlsx')
+                data_ementa_nova = pd.read_excel('ementas_todas_cand-2-bd2.xlsx')
                 #data_ementa = pd.read_excel('https://docs.google.com/spreadsheets/d/11m7psGkn4pOe9oXhyM0xbYQwKpdhA6Fr771Mkme1R3w/edit?usp=sharing')
                 return data_ementa_nova
             data_ementa = load_ementa()
@@ -557,6 +582,26 @@ if pol_part == 'Partido':
             fig_partido.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
             st.plotly_chart(fig_partido,use_container_width=True)
 
+            ### POSTS CANVA INSTAGRAM ###
+
+            #def load_enfase_post():
+            #    data_enfase_post = pd.read_excel('media-estados-POST.xlsx')
+            #    return data_enfase_post
+
+            #enfase_post = load_enfase_post()
+            #enf_tematica_post_estado = enfase_post.loc[enfase_post.estado == uf_escolha, :]
+            #enfase_grafico_POST = enf_tematica_post_estado[['label_pt', 'prop_mean']]
+            #st.table(enfase_grafico_POST)
+            #enfase_grafico_POST.prop_mean = enfase_grafico_POST.prop_mean * 100
+            #estado_parla_POST = px.bar(enfase_grafico_POST, x='prop_mean', y='label_pt', height=500, color='prop_mean',
+            #color_continuous_scale=px.colors.sequential.Viridis,
+            #color_continuous_scale='Sunsetdark',
+            # site com as cores: https://plotly.com/python/builtin-colorscales/
+            #labels=dict(label_pt="", prop_mean="Ênfase Temática %"), orientation='h')
+            #estado_parla_POST.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
+            #st.plotly_chart(estado_parla_POST)
+
+            ### FIM CANVA
 
             #estado_parla.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
 
@@ -574,7 +619,7 @@ if pol_part == 'Partido':
             ### AQUI VEM A BASE DA ÊNFASE!!
 
             def load_enfase():
-                data_enfase = pd.read_excel('enfase-tematica-partidos.xlsx')
+                data_enfase = pd.read_excel('enfase-tematica-partidos2.xlsx')
                 return data_enfase
 
             enfase = load_enfase()
@@ -624,7 +669,7 @@ if pol_part == 'Partido':
             st.title(f'Conheça propostas dos principais temas enfatizados pelo {escolha_partido_do_estado}')
             st.warning(f'Veja algumas propostas dos temas mais enfatizados pelo Partido.')
             def load_ementa():
-                data_ementa_nova = pd.read_excel('ementas_todas_part-2.xlsx')
+                data_ementa_nova = pd.read_excel('ementas_todas_part-2--00.xlsx')
                 #data_ementa = pd.read_excel('https://docs.google.com/spreadsheets/d/11m7psGkn4pOe9oXhyM0xbYQwKpdhA6Fr771Mkme1R3w/edit?usp=sharing')
                 return data_ementa_nova
             inteiro_teor = load_ementa()
@@ -671,4 +716,5 @@ if pol_part == 'Partido':
                 with open(file_name) as f:
                     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
             local_css("style.css")
+
 
