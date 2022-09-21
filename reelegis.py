@@ -497,7 +497,7 @@ if pol_part == 'Político':
             local_css("style.css")
 
 
-
+df = df[df.partido_extenso != 'Sem Partido ( Sem Partido )']
 if pol_part == 'Partido':
     st.header('Onde você vota?')
     df = df.dropna()
