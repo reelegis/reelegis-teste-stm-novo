@@ -372,7 +372,7 @@ if pol_part == 'Político':
             else:
 
             #quantidade_migracao = quantidade_migracao.nunique()
-                st.write(quantidade_migracao)
+                #st.write(quantidade_migracao)
 
             #st.table(enf_tematica_deputado)
                 enfase_grafico = enf_tematica_deputado[['label_pt', 'prop_mean']]
