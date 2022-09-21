@@ -67,7 +67,7 @@ st.header('Nessas eleições, você prefere votar no Político ou no Partido par
 #'Educação', 'Eleições e Democracia', 'Energia', 'Infraestrutura', 'Judiciário', 'Lei e Crime', 'Macroeconomia',
 #'Meio Ambiente', 'Minorias', 'Mulheres', 'Saúde', 'Segurança', 'Comércio e Serviços', 'Trabalho',
 #'Transporte', 'Tributação']
-pol_part = st.radio("Escolha uma opção", ['','Político', 'Partido'], key='1')
+pol_part = st.radio("Escolha uma opção", ['','Político', 'Partido', 'Ainda não decidi'], key='1')
 df2 = df[df.nomeUrna != 'Não está concorrendo']
 df2 = df2[df2.nomeUrna != 'David Miranda ( PDT )']
 df2 = df2.dropna()
@@ -720,4 +720,217 @@ if pol_part == 'Partido':
                     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
             local_css("style.css")
 
+if pol_part == 'Ainda não decidi':
+    st.header('Onde você vota?')
+    def load_enfase():
+        data_enfase = pd.read_excel('ainda_nao_decidi.xlsx')
+        return data_enfase
+    def load_enfase2():
+        data_enfase2 = pd.read_excel('enfase-tematica-partidos2.xlsx')
+        return data_enfase2
+
+    enfase = load_enfase2()
+
+
+    data_enfase = load_enfase()
+
+    data_enfase = data_enfase.dropna()
+    data_enfase = data_enfase[data_enfase.nomeUrna != 'Não está concorrendo']
+    enfase = enfase[enfase.partido_extenso != 'Sem Partido ( Sem Partido )']
+    enfase = enfase[enfase.partido_extenso != 'Partido Popular Socialista ( PPS )']
+    uf = data_enfase['estado'].unique()
+    uf = np.append(uf, '')
+    uf.sort()
+    uf_escolha = st.selectbox("Identifique o Estado", uf)
+    if uf_escolha != '':
+        tem_state = data_enfase.loc[data_enfase.estado == uf_escolha, :]
+
+        #tem_state_partido = df2.loc[df2.estado_extenso_eleicao == uf_escolha, :]
+        tem = tem_state['label_pt'].unique()
+        tem = np.append(tem, '')
+        tem.sort()
+        tema = st.selectbox("Escolha o tema que você dá mais importância", tem)
+        if tema != '':
+            random_val = tem_state.loc[tem_state.label_pt == tema, :]
+            cand_ideal = random_val.loc[random_val.label_pt == tema]
+            ementa = pd.DataFrame(data=random_val['explicacao_tema'].value_counts())
+            st.info(ementa.index[0])
+
+
+            decidi_porcentagem = cand_ideal[['nomeUrna', 'label_pt', 'prop_mean']]
+            decidi_porcentagem['porcentagem_prop_mean'] = decidi_porcentagem['prop_mean'] * 100 /  (sum(decidi_porcentagem['prop_mean']))
+
+            #top_politico = decidi_porcentagem['nomeUrna']
+
+            toppol = pd.DataFrame(data=decidi_porcentagem).sort_values(by = ['porcentagem_prop_mean'],
+            ascending=False)
+            #st.write(toppol)
+            politice_enfase_tema_primeiro = toppol['nomeUrna'].iloc[0]
+            #st.write(politice_enfase_tema)
+            politice_enfase_tema_ultimo = toppol['nomeUrna'].iloc[-1]
+
+            #top_partido = cand_ideal_partido['partido_ext_sigla'].value_counts()
+            #toppart = pd.DataFrame(data=top_partido)
+            #st.subheader(f'Político com maior ênfase temática em {tema}: {toppol.index[0]}')
+            enf_tematica_deputado = enfase.loc[enfase.estado == uf_escolha, :]
+            random_val_partido = enf_tematica_deputado.loc[enf_tematica_deputado.label_pt == tema, :]
+            cand_ideal_partido = random_val_partido.loc[random_val_partido.label_pt == tema]
+            decidi_porcentagem_partido = cand_ideal_partido[['partido_extenso', 'label_pt', 'prop_mean']]
+            decidi_porcentagem_partido['porcentagem_prop_mean_partido'] = decidi_porcentagem_partido['prop_mean'] * 100 /  (sum(decidi_porcentagem_partido['prop_mean']))
+
+            toppart = pd.DataFrame(data=decidi_porcentagem_partido).sort_values(by = ['porcentagem_prop_mean_partido'],
+            ascending=False)
+            #st.write(toppol)
+            part_enfase_tema_primeiro = toppart['partido_extenso'].iloc[0]
+            #st.write(politice_enfase_tema)
+            part_enfase_tema_ultimo = toppart['partido_extenso'].iloc[-1]
+
+
+            st.title(f'Parlamentar com **maior** ênfase em {tema}: **{politice_enfase_tema_primeiro}**')
+
+            #####################
+            ##### fotosssss #####
+
+            f_par23 = df2.loc[df2.nomeUrna == politice_enfase_tema_primeiro, :]
+
+
+
+            foto = f_par23['fotos'].iloc[0]
+            #foto = foto.to_string()
+
+            #foto_parlamentar = foto
+            foto_pa = str(foto)
+            #str_path = "foto_parlamentar"
+            #path = Path(foto_pa)
+            #file_path = os.path.join(foto_pa)
+
+            str_path = foto
+
+            path = Path(str_path)
+            numero = f_par23['numero']
+            n = numero.iloc[0]
+            n0 = int(n)
+            cor_raca = f_par23['cor_raca']
+            cor = cor_raca.iloc[0]
+            profissao = f_par23['Profissao']
+            trabalho = profissao.iloc[0]
+            party = f_par23['partido_ext_sigla'].iloc[0]
+            bens_depois = f_par23['patrimonio_depois'].iloc[0]
+            bens_posteriores = str(bens_depois.replace('.',','))
+
+
+            def split1000(s, sep='.'):
+                return s if len(s) <= 3 else split1000(s[:-3], sep) + sep + s[-3:]
+            x=split1000(bens_posteriores)
+
+
+
+            y = x[:-4] + x[-3:]
+            if y == '0,00':
+                y='Ainda não declarado'
+                real = ''
+            if y == '0,0':
+                y='Ainda não declarado'
+                real = ''
+            if y == '0':
+                y='Ainda não declarado'
+                real = ''
+            else:
+                real = 'R$'
+
+            sex = pd.DataFrame(data=f_par23['sexo'].value_counts())
+            sexo = sex['sexo']
+
+
+            #file_path = os.path.join(foto_pa)
+            gol, mid, gol2 = st.beta_columns([5,1,20])
+            with gol:
+                st.image(str_path, width=120)
+            with gol2:
+                st.success(f"""
+                    * ✅ Número de urna: **{n0}**
+                    * 👤 Cor/raça: **{cor}**
+                    * 💰 Patrimônio declarado: **{real} {y}**
+                    * 💼 Profissão: **{trabalho}**
+                    """)
+
+
+
+
+
+
+
+
+
+
+
+
+
+            #st.header(f'Parlamentar com menor ênfase em {tema}: **{politice_enfase_tema_ultimo}**')
+            #st.write(f'Em contrapartida, **{politice_enfase_tema_ultimo}** foi quem apresentou **menor** ênfase em propostas relacionadas à {tema}.')
+            #st.write(f'Em contrapartida, **{part_enfase_tema_ultimo}** foi quem apresentou **menor** ênfase em propostas relacionadas à {tema}.')
+
+            st.header("📊 Comparativo parlamentar")
+
+            contagem_parlamentares = toppol.groupby(toppol.nomeUrna.tolist(),as_index=False).size()
+            condicao_split_parlamentar = len(contagem_parlamentares.index)
+            #st.write(condicao_split_parlamentar)
+
+            if condicao_split_parlamentar > 29:
+
+                fig_politico=px.bar(toppol, x='porcentagem_prop_mean', y='nomeUrna',
+                height=1500, labels=dict(nomeUrna="", porcentagem_prop_mean='Porcentagem'), orientation='h')
+                fig_politico["data"][0]["marker"]["color"] = ["blue" if c == politice_enfase_tema_primeiro else "#C0C0C0" for c in fig_politico["data"][0]["y"]]
+                fig_politico.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
+                st.plotly_chart(fig_politico,use_container_width=True)
+            else:
+                fig_politico=px.bar(toppol, x='porcentagem_prop_mean', y='nomeUrna',
+                height=600, labels=dict(nomeUrna="", porcentagem_prop_mean='Porcentagem'), orientation='h')
+                fig_politico["data"][0]["marker"]["color"] = ["blue" if c == politice_enfase_tema_primeiro else "#C0C0C0" for c in fig_politico["data"][0]["y"]]
+                fig_politico.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
+                st.plotly_chart(fig_politico,use_container_width=True)
+
+
+            #st.info(f'{politice_enfase_tema_ultimo} apresentou **menor** ênfase em {tema}.')
+
+            st.title(f'Partido com **maior** ênfase em {tema}: **{part_enfase_tema_primeiro}**')
+            st.header("📊 Comparativo partidário")
+            fig_partido=px.bar(toppart, x='porcentagem_prop_mean_partido', y='partido_extenso',
+            height=600, labels=dict(partido_extenso="", porcentagem_prop_mean_partido='Porcentagem'), orientation='h')
+            fig_partido["data"][0]["marker"]["color"] = ["blue" if c == part_enfase_tema_primeiro else "#C0C0C0" for c in fig_partido["data"][0]["y"]]
+            fig_partido.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
+            st.plotly_chart(fig_partido,use_container_width=True)
+
+
+            st.info(f'Com base na sua preferência pelo tema de **{tema}**, na Unidade Federativa {uf_escolha}, **{politice_enfase_tema_primeiro}** e o partido **{part_enfase_tema_primeiro}** são os que mais enfatizaram o tema.')
+            #f = pd.DataFrame(cand_ideal['nomeUrna'])
+            #f2 = pd.DataFrame(cand_ideal_partido['partido_ext_sigla'])
+            #new = f2.groupby(['partido_ext_sigla']).size()#.groupby(['partido_ext_sigla']).size()
+            #g_sum = new.groupby(['partido_ext_sigla']).sum()
+            #n = new.groupby(['partido_ext_sigla']).size()
+            #per = pd.concat([g_sum, n], axis=1)
+            #percapita = per[0]/per[1]
+            #per_capita = pd.DataFrame(percapita)
+            #per_capita.columns=['Taxa per capita']
+            #p = per_capita.sort_values(by=['Taxa per capita'], ascending=False)
+            #st.subheader(f'Partido com maior ênfase temática em {tema}: {p.index[0]}')
+            #st.write(f'Levando em consideração a _taxa per capita_, na Unidade Federativa {uf_escolha}, o {p.index[0]} foi quem mais apresentou propostas sobre {tema}. Em contrapartida, {p.index[-1]} foi quem apresentou menos propostas relacionadas a {tema}.')
+            #st.info(f'A taxa _por parlamentar_ de propostas apresentadas leva em consideração o total de projetos apresentados do partido no tema {tema} dividido pela quantidade de seus parlamentares que também apresentaram propostas sobre o mesmo tema. A opção por esta métrica permite tornar os partidos comparáveis com base na quantidade de seus membros, não indicando necessariamente o valor total de projetos que foram apresentados pelo partido. ')
+            st.header('📢  Conta pra gente!')
+            st.warning('Fique à vontade para nos informar sobre algo que queria ter visto nesta aba ou sobre a plataforma, para melhorarmos no futuro!')
+            contact_form = """
+            <form action="https://formsubmit.co/reelegis@gmail.com" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="name" placeholder="Nome" required>
+            <input type="email" name="email" placeholder="E-mail" required>
+            <textarea name="message" placeholder="Sua mensagem"></textarea>
+            <button type="submit">Enviar</button>
+            </form>
+            """
+            st.markdown(contact_form, unsafe_allow_html=True)
+
+            def local_css(file_name):
+                with open(file_name) as f:
+                    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+            local_css("style.css")
 
