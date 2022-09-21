@@ -37,6 +37,9 @@ def load_data():
 df = load_data()
 df_party = load_data()
 
+df_party = df_party[df_party.partido_ext_sigla != 'Sem Partido ( Sem Partido )']
+df_party = df_party[df_party.partido_ext_sigla != 'Partido Popular Socialista ( PPS )']
+
 #df = df.dropna() #lida com todos os espacos vazios dos dados
 
 st.markdown('No dia 2 de outubro de 2022 teremos novas eleições. É uma oportunidade valiosa para renovar ou premiar a atual composição do Congresso Nacional. Pensando nisso, apresentamos a plataforma reeLegis! Com o uso de aprendizagem computacional, ela permite analisar e comparar a atuação de todos os Deputados e Deputadas Federais que buscam a reeleição. **E aí? Vai reeleger ou renovar?**')
