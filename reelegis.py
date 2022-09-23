@@ -749,7 +749,8 @@ if pol_part == 'Ainda não decidi':
         tem = tem_state['label_pt'].unique()
         tem = np.append(tem, '')
         tem.sort()
-        tema = st.selectbox("Escolha o tema que você dá mais importância", tem)
+        st.header("Escolha o tema da sua preferência")
+        tema = st.selectbox("", tem)
         if tema != '':
             random_val = tem_state.loc[tem_state.label_pt == tema, :]
             cand_ideal = random_val.loc[random_val.label_pt == tema]
@@ -786,7 +787,10 @@ if pol_part == 'Ainda não decidi':
             part_enfase_tema_ultimo = toppart['partido_extenso'].iloc[-1]
 
 
-            st.title(f'Parlamentar com **maior** ênfase em {tema}: **{politice_enfase_tema_primeiro}**')
+
+            st.success(f'Com base na sua preferência pelo tema de **{tema}**, na Unidade Federativa {uf_escolha}, **{politice_enfase_tema_primeiro}** e o **{part_enfase_tema_primeiro}** são os que mais enfatizaram o tema. Veja abaixo o comparativo dos candidatos e dos partidos que enfatizam o tema de **{tema}**.')
+            st.title('👤 Candidato ideal')
+            st.subheader(f'Parlamentar com **maior** ênfase em **{tema}**: **{politice_enfase_tema_primeiro}**')
 
             #####################
             ##### fotosssss #####
@@ -892,8 +896,8 @@ if pol_part == 'Ainda não decidi':
 
 
             #st.info(f'{politice_enfase_tema_ultimo} apresentou **menor** ênfase em {tema}.')
-
-            st.title(f'Partido com **maior** ênfase em {tema}: **{part_enfase_tema_primeiro}**')
+            st.title('🏛️ Partido ideal')
+            st.header(f'Partido com **maior** ênfase em **{tema}**: **{part_enfase_tema_primeiro}**')
             st.header("📊 Comparativo partidário")
             fig_partido=px.bar(toppart, x='porcentagem_prop_mean_partido', y='partido_extenso',
             height=600, labels=dict(partido_extenso="", porcentagem_prop_mean_partido='Porcentagem'), orientation='h')
@@ -902,7 +906,8 @@ if pol_part == 'Ainda não decidi':
             st.plotly_chart(fig_partido,use_container_width=True)
 
 
-            st.info(f'Com base na sua preferência pelo tema de **{tema}**, na Unidade Federativa {uf_escolha}, **{politice_enfase_tema_primeiro}** e o partido **{part_enfase_tema_primeiro}** são os que mais enfatizaram o tema.')
+            st.title('🤔 E aí, vai reeleger ou renovar?')
+
             #f = pd.DataFrame(cand_ideal['nomeUrna'])
             #f2 = pd.DataFrame(cand_ideal_partido['partido_ext_sigla'])
             #new = f2.groupby(['partido_ext_sigla']).size()#.groupby(['partido_ext_sigla']).size()
@@ -934,3 +939,5 @@ if pol_part == 'Ainda não decidi':
                     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
             local_css("style.css")
 
+
+# google analytics aqui!
