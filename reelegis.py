@@ -1443,8 +1443,7 @@ if pol_part == 'Ainda não decidi':
     data_enfase = data_enfase[data_enfase.nomeUrna != 'Não está concorrendo']
     enfase = enfase[enfase.partido_extenso != 'Sem Partido ( Sem Partido )']
     enfase = enfase[enfase.partido_extenso != 'Partido Popular Socialista ( PPS )']
-    enfase = enfase[enfase.partido_extenso != 'Partido Trabalhista Nacional ( PTN )']
-    enfase = enfase[enfase.partido_extenso != '']
+    enfase = enfase[enfase.partido_extenso != 'Partido Humanista da Solidariedade ( PHS )']
     uf = data_enfase['estado'].unique()
     uf = np.append(uf, '')
     uf.sort()
@@ -1467,6 +1466,8 @@ if pol_part == 'Ainda não decidi':
 
             decidi_porcentagem = cand_ideal[['nomeUrna', 'label_pt', 'prop_mean', 'sexo']]
             decidi_porcentagem['porcentagem_prop_mean'] = decidi_porcentagem['prop_mean'] * 100 #/  (sum(decidi_porcentagem['prop_mean']))
+            decidi_porcentagem.groupby('nomeUrna').transform(lambda x:(x-x.mean())/x.std())
+
 
             #top_politico = decidi_porcentagem['nomeUrna']
             ########
@@ -1506,6 +1507,7 @@ if pol_part == 'Ainda não decidi':
             ascending=False).reset_index()
 
 
+            toppol['normalizado_politico'] = (toppol['valor_ranking'] - min(toppol['valor_ranking']))/(max(toppol['valor_ranking'])-min(toppol['valor_ranking']))
 
             #st.write(toppol)
             politice_enfase_tema_primeiro = toppol['nomeUrna'].iloc[0]
@@ -1534,7 +1536,6 @@ if pol_part == 'Ainda não decidi':
             cand_ideal_partido = random_val_partido.loc[random_val_partido.label_pt == tema]
             decidi_porcentagem_partido = cand_ideal_partido[['partido_extenso', 'label_pt', 'prop_mean']]
             decidi_porcentagem_partido['porcentagem_prop_mean_partido'] = decidi_porcentagem_partido['prop_mean'] * 100 #/  (sum(decidi_porcentagem_partido['prop_mean']))
-
             ####
             enf_df_party = df_party.loc[df_party.estado_partido_exercicio == uf_escolha, :]
             f = pd.DataFrame(enf_df_party[['nomeUrna', 'partido_ext_sigla']])
@@ -1558,6 +1559,7 @@ if pol_part == 'Ainda não decidi':
             per_capita_tema_ranking = pd.concat([partidos_per, transformar_para_index_partido], axis=1)
 
             per_capita_tema_ranking['valor_ranking'] = per_capita_tema_ranking['Taxa per capita'] * per_capita_tema_ranking['porcentagem_prop_mean_partido']
+            #st.write(per_capita_tema_ranking)
             #st.title('*Ranking* da quantidade de propostas apresentadas pelos/as candidatos/as à reeleição')
             #partido_selecionado = int(per_capita.loc[escolha_partido_do_estado])
             #st.write(partido_selecionado.index[0])
@@ -1575,6 +1577,22 @@ if pol_part == 'Ainda não decidi':
 
             toppart = pd.DataFrame(data=per_capita_tema_ranking).sort_values(by = ['valor_ranking'],
             ascending=False).reset_index()
+            # groups = toppart.groupby('index')
+            # min, max = groups.transform('min'), groups.transform('max')
+            # normalized= (toppart[toppart.columns]-min)/max
+
+            #normal['valor_ranking']= normal.groupby('index').transform(lambda x: (x - x.min())/ (x.max() - x.min()))
+            #cols = toppart['valor_ranking']
+            # g = toppart.groupby('index')['valor_ranking', 'Taxa per capita']
+            # min1 = g.transform('min')
+            # max1 = g.transform('max')
+            #df1 = toppart.join(toppart['valor_ranking'].sub(min1).div(max1 - min1).add_suffix('norm'))
+            #normal[['prop_mean', 'Taxa per capita']] = normal.groupby('index')[['prop_mean', 'Taxa per capita']].apply(lambda x: (x-x.min())/(x.max()-x.min()))
+
+            toppart['normalizado_partido'] = (toppart['valor_ranking'] - min(toppart['valor_ranking']))/(max(toppart['valor_ranking'])-min(toppart['valor_ranking']))
+
+            #st.write(normal)
+
             #st.write(toppol)
             part_enfase_tema_primeiro = toppart['index'].iloc[0]
             #st.write(politice_enfase_tema)
@@ -1697,14 +1715,14 @@ if pol_part == 'Ainda não decidi':
 
             if condicao_split_parlamentar > 29:
 
-                fig_politico=px.bar(toppol, x='valor_ranking', y='nomeUrna',
-                height=1500, labels=dict(nomeUrna="", valor_ranking='Ênfase temática por dia'), orientation='h')
+                fig_politico=px.bar(toppol, x='normalizado_politico', y='nomeUrna',
+                height=1500, labels=dict(nomeUrna="", normalizado_politico='Afinidade temática'), orientation='h')
                 fig_politico["data"][0]["marker"]["color"] = ["blue" if c == politice_enfase_tema_primeiro else "#C0C0C0" for c in fig_politico["data"][0]["y"]]
                 fig_politico.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
                 st.plotly_chart(fig_politico,use_container_width=True)
             else:
-                fig_politico=px.bar(toppol, x='valor_ranking', y='nomeUrna',
-                height=600, labels=dict(nomeUrna="", valor_ranking='Ênfase temática por dia'), orientation='h')
+                fig_politico=px.bar(toppol, x='normalizado_politico', y='nomeUrna',
+                height=600, labels=dict(nomeUrna="", normalizado_politico='Afinidade temática'), orientation='h')
                 fig_politico["data"][0]["marker"]["color"] = ["blue" if c == politice_enfase_tema_primeiro else "#C0C0C0" for c in fig_politico["data"][0]["y"]]
                 fig_politico.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
                 st.plotly_chart(fig_politico,use_container_width=True)
@@ -2077,8 +2095,8 @@ if pol_part == 'Ainda não decidi':
 
 
             st.header("📊 Comparativo partidário")
-            fig_partido=px.bar(toppart, x='valor_ranking', y='index',
-            height=600, labels=dict(index="", valor_ranking='Ênfase temática por parlamentar'), orientation='h')
+            fig_partido=px.bar(toppart, x='normalizado_partido', y='index',
+            height=600, labels=dict(index="", valor_ranking='Afinidade Temática'), orientation='h')
             fig_partido["data"][0]["marker"]["color"] = ["blue" if c == part_enfase_tema_primeiro else "#C0C0C0" for c in fig_partido["data"][0]["y"]]
             fig_partido.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
             st.plotly_chart(fig_partido,use_container_width=True)
