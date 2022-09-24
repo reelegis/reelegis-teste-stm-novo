@@ -39,7 +39,7 @@ df_party = load_data()
 
 df_party = df_party[df_party.partido_ext_sigla != 'Sem Partido ( Sem Partido )']
 df_party = df_party[df_party.partido_ext_sigla != 'Partido Popular Socialista ( PPS )']
-df = df[df.partido_extenso != 'Partido Trabalhista Nacional ( PTN )']
+df_party = df_party[df_party.partido_ext_sigla != 'Partido Trabalhista Nacional ( PTN )']
 
 
 #df = df.dropna() #lida com todos os espacos vazios dos dados
@@ -503,7 +503,7 @@ if pol_part == 'Político':
 
 
 df = df[df.partido_ext_sigla != 'Sem Partido ( Sem Partido )']
-df = df[df.partido_extenso != 'Partido Trabalhista Nacional ( PTN )']
+df = df[df.partido_ext_sigla != 'Partido Trabalhista Nacional ( PTN )']
 if pol_part == 'Partido':
     st.header('Onde você vota?')
     df = df.dropna()
