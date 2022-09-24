@@ -1694,13 +1694,13 @@ if pol_part == 'Ainda não decidi':
             if condicao_split_parlamentar > 29:
 
                 fig_politico=px.bar(toppol, x='valor_ranking', y='nomeUrna',
-                height=1500, labels=dict(nomeUrna="", porcentagem_prop_mean='Porcentagem'), orientation='h')
+                height=1500, labels=dict(nomeUrna="", valor_ranking='Ênfase temática por dia'), orientation='h')
                 fig_politico["data"][0]["marker"]["color"] = ["blue" if c == politice_enfase_tema_primeiro else "#C0C0C0" for c in fig_politico["data"][0]["y"]]
                 fig_politico.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
                 st.plotly_chart(fig_politico,use_container_width=True)
             else:
                 fig_politico=px.bar(toppol, x='valor_ranking', y='nomeUrna',
-                height=600, labels=dict(nomeUrna="", porcentagem_prop_mean='Porcentagem'), orientation='h')
+                height=600, labels=dict(nomeUrna="", valor_ranking='Ênfase temática por dia'), orientation='h')
                 fig_politico["data"][0]["marker"]["color"] = ["blue" if c == politice_enfase_tema_primeiro else "#C0C0C0" for c in fig_politico["data"][0]["y"]]
                 fig_politico.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
                 st.plotly_chart(fig_politico,use_container_width=True)
@@ -2074,7 +2074,7 @@ if pol_part == 'Ainda não decidi':
 
             st.header("📊 Comparativo partidário")
             fig_partido=px.bar(toppart, x='valor_ranking', y='index',
-            height=600, labels=dict(index="", valor_ranking='Porcentagem'), orientation='h')
+            height=600, labels=dict(index="", valor_ranking='Ênfase temática por parlamentar'), orientation='h')
             fig_partido["data"][0]["marker"]["color"] = ["blue" if c == part_enfase_tema_primeiro else "#C0C0C0" for c in fig_partido["data"][0]["y"]]
             fig_partido.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
             st.plotly_chart(fig_partido,use_container_width=True)
