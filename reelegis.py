@@ -1009,8 +1009,8 @@ if pol_part == 'Partido':
                 #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
                 #     quantidade_parlamentares = total_do_filtro
 
-#                legenda = 43
-#                nome_parlamentar = f_par23['nomeUrna'].unique()
+                legenda = 43
+                nome_parlamentar = f_par23['nomeUrna'].unique()
                 quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
