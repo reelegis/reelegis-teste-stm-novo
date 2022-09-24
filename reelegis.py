@@ -39,6 +39,8 @@ df_party = load_data()
 
 df_party = df_party[df_party.partido_ext_sigla != 'Sem Partido ( Sem Partido )']
 df_party = df_party[df_party.partido_ext_sigla != 'Partido Popular Socialista ( PPS )']
+df = df[df.partido_extenso != 'Partido Trabalhista Nacional ( PTN )']
+
 
 #df = df.dropna() #lida com todos os espacos vazios dos dados
 
@@ -501,6 +503,7 @@ if pol_part == 'Político':
 
 
 df = df[df.partido_ext_sigla != 'Sem Partido ( Sem Partido )']
+df = df[df.partido_extenso != 'Partido Trabalhista Nacional ( PTN )']
 if pol_part == 'Partido':
     st.header('Onde você vota?')
     df = df.dropna()
@@ -1440,7 +1443,8 @@ if pol_part == 'Ainda não decidi':
     data_enfase = data_enfase[data_enfase.nomeUrna != 'Não está concorrendo']
     enfase = enfase[enfase.partido_extenso != 'Sem Partido ( Sem Partido )']
     enfase = enfase[enfase.partido_extenso != 'Partido Popular Socialista ( PPS )']
-    enfase = enfase[enfase.partido_extenso != 'Partido Humanista da Solidariedade ( PHS )']
+    enfase = enfase[enfase.partido_extenso != 'Partido Trabalhista Nacional ( PTN )']
+    enfase = enfase[enfase.partido_extenso != '']
     uf = data_enfase['estado'].unique()
     uf = np.append(uf, '')
     uf.sort()
