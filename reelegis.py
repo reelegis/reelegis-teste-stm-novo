@@ -953,22 +953,22 @@ if pol_part == 'Partido':
 
             ### POSTS CANVA INSTAGRAM ###
 
-            def load_enfase_post():
-                data_enfase_post = pd.read_excel('media-estados-POST.xlsx')
-                return data_enfase_post
+            #def load_enfase_post():
+            #    data_enfase_post = pd.read_excel('media-estados-POST.xlsx')
+            #    return data_enfase_post
 
-            enfase_post = load_enfase_post()
-            enf_tematica_post_estado = enfase_post.loc[enfase_post.estado == uf_escolha, :]
-            enfase_grafico_POST = enf_tematica_post_estado[['label_pt', 'prop_mean']]
+            #enfase_post = load_enfase_post()
+            #enf_tematica_post_estado = enfase_post.loc[enfase_post.estado == uf_escolha, :]
+            #enfase_grafico_POST = enf_tematica_post_estado[['label_pt', 'prop_mean']]
             #st.table(enfase_grafico_POST)
-            enfase_grafico_POST.prop_mean = enfase_grafico_POST.prop_mean * 100
-            estado_parla_POST = px.bar(enfase_grafico_POST, x='prop_mean', y='label_pt', height=500, color='prop_mean',
+            #enfase_grafico_POST.prop_mean = enfase_grafico_POST.prop_mean * 100
+            #estado_parla_POST = px.bar(enfase_grafico_POST, x='prop_mean', y='label_pt', height=500, color='prop_mean',
             #color_continuous_scale=px.colors.sequential.Viridis,
-            color_continuous_scale='Sunsetdark',
+            #color_continuous_scale='Sunsetdark',
             # site com as cores: https://plotly.com/python/builtin-colorscales/
-            labels=dict(label_pt="", prop_mean="Ênfase Temática %"), orientation='h')
-            estado_parla_POST.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
-            st.plotly_chart(estado_parla_POST)
+            #labels=dict(label_pt="", prop_mean="Ênfase Temática %"), orientation='h')
+            #estado_parla_POST.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
+            #st.plotly_chart(estado_parla_POST)
 
             ### FIM CANVA
 
