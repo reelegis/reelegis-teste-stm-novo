@@ -530,9 +530,24 @@ if pol_part == 'Partido':
         if escolha_partido_do_estado != '':
             f_par23 = f_par2.loc[f_par2.partido_ext_sigla == escolha_partido_do_estado, :]
             if escolha_partido_do_estado == "Avante ( AVANTE )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                #
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
+
                 legenda = 70
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+                #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/AVANTE.jpeg", width=150)
@@ -542,12 +557,25 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "Cidadania ( CIDADANIA )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
                 legenda = 23
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+                #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/CIDADANIA.jpeg", width=150)
@@ -557,12 +585,25 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "Movimento Democrático Brasileiro ( MDB )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
                 legenda = 15
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+                #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/MDB.jpeg", width=150)
@@ -572,12 +613,25 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "Partido Comunista do Brasil ( PCdoB )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
                 legenda = 65
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+                #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PCdoB.jpeg", width=150)
@@ -587,12 +641,25 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "Partido da Mobilização Nacional ( PMN )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
                 legenda = 33
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+                #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PMN.jpeg", width=150)
@@ -602,12 +669,25 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "Partido do Socialismo e Liberadade ( PSOL )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
                 legenda = 50
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+                #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PSOL.jpeg", width=150)
@@ -617,12 +697,26 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "Partido Democrático Trabalhista ( PDT )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
+
                 legenda = 12
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+                #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PDT.jpeg", width=150)
@@ -632,12 +726,26 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "Partido dos Trabalhadores ( PT )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
+
                 legenda = 13
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+                #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PT.jpeg", width=150)
@@ -647,12 +755,29 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "Partido Liberal ( PL )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                #
+                # #nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # #nome_parlamentar = len(nome_parlamentar['nomeUrna'].unique())
+                # #st.write(nome_parlamentar)
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                #     quantidade_parlamentares = len(nome_parlamentar['nomeUrna'].unique())
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
+
                 legenda = 22
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+                #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PL.jpeg", width=150)
@@ -662,12 +787,25 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
                         """)
             if escolha_partido_do_estado == "Partido Novo ( NOVO )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
+
                 legenda = 30
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+                #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/NOVO.jpeg", width=150)
@@ -677,12 +815,26 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "Partido Republicano da Ordem Social ( PROS )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
+                #
                 legenda = 90
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+#                nome_parlamentar = f_par23['nomeUrna'].unique()
+#                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PROS.jpeg", width=150)
@@ -692,12 +844,26 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "Partido Social Cristão ( PSC )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
+
                 legenda = 20
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+#                nome_parlamentar = f_par23['nomeUrna'].unique()
+#                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PSC.jpeg", width=150)
@@ -707,12 +873,26 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "Partido Social Democracia Brasileira ( PSDB )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
+
                 legenda = 45
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+#                nome_parlamentar = f_par23['nomeUrna'].unique()
+#                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PSDB.jpeg", width=150)
@@ -722,27 +902,55 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "Partido Social Democrático ( PSD )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
+
                 legenda = 55
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+                #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
-                    st.image("partidos/PSDB.jpeg", width=150)
+                    st.image("partidos/PSD.jpeg", width=150)
                 with gol2:
                     st.success(f"""
                         * 🏛️ Partido: **{escolha_partido_do_estado}**
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "Partido Socialista Brasileiro ( PSB )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
+
                 legenda = 40
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+                #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PSB.jpeg", width=150)
@@ -752,12 +960,26 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "Partido Trabalhista Brasileiro ( PTB )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
+
                 legenda = 14
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+#                nome_parlamentar = f_par23['nomeUrna'].unique()
+                #quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PTB.jpeg", width=150)
@@ -767,11 +989,25 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "Partido Verde ( PV )":
-                legenda = 43
-                nome_parlamentar = f_par23['nomeUrna'].unique()
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
+
+#                legenda = 43
+#                nome_parlamentar = f_par23['nomeUrna'].unique()
                 quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
@@ -782,12 +1018,26 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "Patriota ( PATRIOTA )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
+
                 legenda = 51
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+                #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PATRIOTA.jpeg", width=150)
@@ -797,12 +1047,26 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "Podemos ( PODEMOS )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
+
                 legenda = 19
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+#                nome_parlamentar = f_par23['nomeUrna'].unique()
+#                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PODE.jpeg", width=150)
@@ -812,12 +1076,26 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "Progressista ( PP )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
+
                 legenda = 11
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+#                nome_parlamentar = f_par23['nomeUrna'].unique()
+#                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PP.jpeg", width=150)
@@ -827,12 +1105,26 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "Rede Sustentabilidade ( REDE )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
+                #
                 legenda = 18
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+#                nome_parlamentar = f_par23['nomeUrna'].unique()
+#                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/REDE.jpeg", width=150)
@@ -842,12 +1134,26 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "Republicanos ( REPUBLICANOS )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
+
                 legenda = 10
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+#                nome_parlamentar = f_par23['nomeUrna'].unique()
+#                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/REPUBLICANOS.jpeg", width=150)
@@ -857,12 +1163,26 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "Solidariedade ( SOLIDARIEDADE )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
+
                 legenda = 77
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+#                nome_parlamentar = f_par23['nomeUrna'].unique()
+#                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/SOLIDARIEDADE.jpeg", width=150)
@@ -872,12 +1192,26 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if escolha_partido_do_estado == "União Brasil ( UNIÃO )":
+                # partido_anterior = len(f_par23['partido_ext_sigla'].unique())
+                # partido_presente = len(f_par23['partido_concorrencia_extenso'].unique())
+                # nome_parlamentar = f_par23['nomeUrna'].unique()
+                # nome_parlamentar = f_par23[f_par23.nomeUrna != "Não está concorrendo"]
+                # if partido_anterior == partido_presente:
+                #     #nome_parlamentar = f_par23['nomeUrna'].unique()
+                #     quantidade_parlamentares = len(nome_parlamentar)
+                # else:
+                #     #se nao for igual, entao teve gente que mudou de partido!
+                #     filtro = f_par23[f_par23.partido_concorrencia_extenso != escolha_partido_do_estado]
+                #     filtro = len(filtro['partido_concorrencia_extenso'].unique())
+                #     total_do_filtro = len(f_par23['partido_concorrencia_extenso'].unique()) - filtro
+                #     quantidade_parlamentares = total_do_filtro
+
                 legenda = 44
-                nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(nome_parlamentar)
+#                nome_parlamentar = f_par23['nomeUrna'].unique()
+#                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/UNIAO.jpeg", width=150)
@@ -887,7 +1221,7 @@ if pol_part == 'Partido':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
 
 
@@ -953,22 +1287,22 @@ if pol_part == 'Partido':
 
             ### POSTS CANVA INSTAGRAM ###
 
-            #def load_enfase_post():
-            #    data_enfase_post = pd.read_excel('media-estados-POST.xlsx')
-            #    return data_enfase_post
-
-            #enfase_post = load_enfase_post()
-            #enf_tematica_post_estado = enfase_post.loc[enfase_post.estado == uf_escolha, :]
-            #enfase_grafico_POST = enf_tematica_post_estado[['label_pt', 'prop_mean']]
-            #st.table(enfase_grafico_POST)
-            #enfase_grafico_POST.prop_mean = enfase_grafico_POST.prop_mean * 100
-            #estado_parla_POST = px.bar(enfase_grafico_POST, x='prop_mean', y='label_pt', height=500, color='prop_mean',
-            #color_continuous_scale=px.colors.sequential.Viridis,
-            #color_continuous_scale='Sunsetdark',
-            # site com as cores: https://plotly.com/python/builtin-colorscales/
-            #labels=dict(label_pt="", prop_mean="Ênfase Temática %"), orientation='h')
-            #estado_parla_POST.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
-            #st.plotly_chart(estado_parla_POST)
+            # def load_enfase_post():
+            #     data_enfase_post = pd.read_excel('media-estados-POST.xlsx')
+            #     return data_enfase_post
+            #
+            # enfase_post = load_enfase_post()
+            # enf_tematica_post_estado = enfase_post.loc[enfase_post.estado == uf_escolha, :]
+            # enfase_grafico_POST = enf_tematica_post_estado[['label_pt', 'prop_mean']]
+            # #st.table(enfase_grafico_POST)
+            # enfase_grafico_POST.prop_mean = enfase_grafico_POST.prop_mean * 100
+            # estado_parla_POST = px.bar(enfase_grafico_POST, x='prop_mean', y='label_pt', height=500, color='prop_mean',
+            # #color_continuous_scale=px.colors.sequential.Viridis,
+            # color_continuous_scale='Sunsetdark',
+            # # site com as cores: https://plotly.com/python/builtin-colorscales/
+            # labels=dict(label_pt="", prop_mean="Ênfase Temática %"), orientation='h')
+            # estado_parla_POST.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
+            # st.plotly_chart(estado_parla_POST)
 
             ### FIM CANVA
 
@@ -1131,11 +1465,50 @@ if pol_part == 'Ainda não decidi':
             decidi_porcentagem['porcentagem_prop_mean'] = decidi_porcentagem['prop_mean'] * 100 #/  (sum(decidi_porcentagem['prop_mean']))
 
             #top_politico = decidi_porcentagem['nomeUrna']
+            ########
+            ##DIAS##
+            ########
+            f_par23 = df2.loc[df2.estado_extenso_eleicao == uf_escolha, :]
+            f2 = pd.DataFrame(f_par23[[ 'nomeUrna', 'dias_total']])
+            urna_names = f2.groupby(['nomeUrna']).size()
+            dias_nome = pd.DataFrame(f2, columns = ['nomeUrna', 'dias_total'])
+            g = dias_nome.groupby('nomeUrna')['dias_total'].apply(lambda x: float(np.unique(x)))
+            d = pd.concat([g, urna_names], axis=1)
+            dias = pd.DataFrame(d)
+            result = dias[0]/dias['dias_total']
+            r = pd.DataFrame(result)
 
-            toppol = pd.DataFrame(data=decidi_porcentagem).sort_values(by = ['porcentagem_prop_mean'],
-            ascending=False)
+            transformar_para_index = decidi_porcentagem.set_index('nomeUrna')
+
+
+            r['dias'] =r[r.columns[0]]
+
+
+            #decidi_porcentagem['dias'] = r[0]
+            dias_porcentagem_enfase = pd.concat([r, transformar_para_index], axis=1)
+
+
+
+            dias_porcentagem_enfase['valor_ranking'] = dias_porcentagem_enfase['dias'] * dias_porcentagem_enfase['porcentagem_prop_mean']
+
+
+            #st.write(dias_porcentagem_enfase)
+            #r[0] = r[0].rank(ascending=False)
+            #posit = r.loc[r.index == decidi_porcentagem, :]
+            #d = p//1
+
+
+            toppol = pd.DataFrame(data=dias_porcentagem_enfase).sort_values(by = ['valor_ranking'],
+            ascending=False).reset_index()
+
+
+
             #st.write(toppol)
             politice_enfase_tema_primeiro = toppol['nomeUrna'].iloc[0]
+            #posit = toppol.loc[toppol.index == politice_enfase_tema_primeiro, :]
+            #p2 = round(posit.iloc[0], 3)
+
+
             genero_primeire = toppol['sexo'].iloc[0]
             #st.write(politice_enfase_tema)
             politice_enfase_tema_ultimo = toppol['nomeUrna'].iloc[-1]
@@ -1158,27 +1531,85 @@ if pol_part == 'Ainda não decidi':
             decidi_porcentagem_partido = cand_ideal_partido[['partido_extenso', 'label_pt', 'prop_mean']]
             decidi_porcentagem_partido['porcentagem_prop_mean_partido'] = decidi_porcentagem_partido['prop_mean'] * 100 #/  (sum(decidi_porcentagem_partido['prop_mean']))
 
-            toppart = pd.DataFrame(data=decidi_porcentagem_partido).sort_values(by = ['porcentagem_prop_mean_partido'],
-            ascending=False)
+            ####
+            enf_df_party = df_party.loc[df_party.estado_partido_exercicio == uf_escolha, :]
+            f = pd.DataFrame(enf_df_party[['nomeUrna', 'partido_ext_sigla']])
+            new = f.groupby(['partido_ext_sigla', 'nomeUrna']).size()#.groupby(['partido_ext_sigla']).size()
+            g_sum = new.groupby(['partido_ext_sigla']).sum()
+            n = new.groupby(['partido_ext_sigla']).size()
+            per = pd.concat([g_sum, n], axis=1)
+            percapita = per[0]/per[1]
+            per_capita = pd.DataFrame(percapita)
+            per_capita.columns=['Taxa per capita']
+
+            partidos_per = pd.DataFrame(per_capita)
+            partidos_per.columns=['Taxa per capita']
+            #reorder = partidos_per.sort_values(by = 'Taxa per capita', ascending = False)
+            partidos_per.Taxa = pd.to_numeric(partidos_per['Taxa per capita'], errors='coerce')
+            #ppc = partidos_per.sort_values(by='Taxa per capita')
+
+
+            transformar_para_index_partido = decidi_porcentagem_partido.set_index('partido_extenso')
+
+            per_capita_tema_ranking = pd.concat([partidos_per, transformar_para_index_partido], axis=1)
+
+            per_capita_tema_ranking['valor_ranking'] = per_capita_tema_ranking['Taxa per capita'] * per_capita_tema_ranking['porcentagem_prop_mean_partido']
+            #st.title('*Ranking* da quantidade de propostas apresentadas pelos/as candidatos/as à reeleição')
+            #partido_selecionado = int(per_capita.loc[escolha_partido_do_estado])
+            #st.write(partido_selecionado.index[0])
+            #st.write(f'{partido_selecionado.to_string(index=False)}')
+
+            #position = pd.DataFrame(ppc)
+            #amplitude = len(position)
+            #position.insert(1,"posicao", range(0,amplitude))
+            #lugar = position[['Taxa per capita', 'posicao']] +1
+            #l = lugar[(lugar.index == escolha_partido_do_estado)]
+            #posit = l['posicao'].iloc[0]
+#######
+
+
+
+            toppart = pd.DataFrame(data=per_capita_tema_ranking).sort_values(by = ['valor_ranking'],
+            ascending=False).reset_index()
             #st.write(toppol)
-            part_enfase_tema_primeiro = toppart['partido_extenso'].iloc[0]
+            part_enfase_tema_primeiro = toppart['index'].iloc[0]
             #st.write(politice_enfase_tema)
-            part_enfase_tema_ultimo = toppart['partido_extenso'].iloc[-1]
+            part_enfase_tema_ultimo = toppart['index'].iloc[-1]
 
 
-            st.title('Afinidade temática')
-            st.success(f'**{politice_enfase_tema_primeiro}** é {artigo} {elu_delu} à reeleição que mais enfatizou o tema **{tema}** nas propostas apresentadas durante seu mandato. Por sua vez, o **{part_enfase_tema_primeiro}** é o partido cujas propostas de deputados mais enfatizaram o tema **{tema}** ao longo da legislatura. Veja abaixo o comparativo dos candidatos e dos partidos.')
+            st.title('Indicador de Afinidade Temática')
+            maior_enfase_percent = toppol.iloc[:1]
+            porcentagem = int(maior_enfase_percent['porcentagem_prop_mean'].iloc[:1])
+            maior_enfase_percent_part = toppart.iloc[:1]
+            porcentagem_part = int(maior_enfase_percent_part['porcentagem_prop_mean_partido'].iloc[:1])
+
+
+            por_dia = toppol['dias'].iloc[:1]
+            p2 = round(por_dia.iloc[0], 3)
+
+            por_parlamentar = toppart['Taxa per capita'].iloc[:1]
+            p3 = round(por_parlamentar.iloc[0])
+            #por_dia = int(por_dia['dias'].iloc[:1])
+            st.success(f"""
+            **{politice_enfase_tema_primeiro}** é {artigo} {elu_delu} à reeleição com maior Indicador de Afinidade para o tema {tema}. De 100% de sua agenda, **{porcentagem}%** de sua ênfase temática foi dedicada ao tema de **{tema}**. E, durante seu mandato, apresentou propostas **{p2}** por dia.
+
+            Por sua vez, o **{part_enfase_tema_primeiro}** é o partido cujas propostas de deputados tiveram maior resultado no Indicador de Afinidade para o tema de {tema}. De 100% de sua agenda, **{porcentagem_part}%** de sua ênfase temática foi dedicada ao tema. O partido apresentou **{p3}** propostas por parlamentar.
+
+            Veja abaixo o comparativo dos candidatos e dos partidos.
+                        """)
+            #que mais enfatizou o tema **{tema}** nas propostas apresentadas durante seu mandato. Por sua vez, o **{part_enfase_tema_primeiro}** é o partido cujas propostas de deputados mais enfatizaram o tema **{tema}** ao longo da legislatura. Veja abaixo o comparativo dos candidatos e dos partidos.')
             #st.success(f'Com base na sua preferência pelo tema de **{tema}**, na Unidade Federativa {uf_escolha}, **{politice_enfase_tema_primeiro}** e o **{part_enfase_tema_primeiro}** são os que mais enfatizaram o tema. Veja abaixo o comparativo dos candidatos e dos partidos que enfatizam o tema de **{tema}**.')
             st.header(f'👤 {elu_delu}')
             st.subheader(f'Parlamentar com **maior** ênfase em **{tema}**: **{politice_enfase_tema_primeiro}**')
 
+            ###########
+            #### dias #
+
             #####################
             ##### fotosssss #####
 
+
             f_par23 = df2.loc[df2.nomeUrna == politice_enfase_tema_primeiro, :]
-
-
-
             foto = f_par23['fotos'].iloc[0]
             #foto = foto.to_string()
 
@@ -1262,13 +1693,13 @@ if pol_part == 'Ainda não decidi':
 
             if condicao_split_parlamentar > 29:
 
-                fig_politico=px.bar(toppol, x='porcentagem_prop_mean', y='nomeUrna',
+                fig_politico=px.bar(toppol, x='valor_ranking', y='nomeUrna',
                 height=1500, labels=dict(nomeUrna="", porcentagem_prop_mean='Porcentagem'), orientation='h')
                 fig_politico["data"][0]["marker"]["color"] = ["blue" if c == politice_enfase_tema_primeiro else "#C0C0C0" for c in fig_politico["data"][0]["y"]]
                 fig_politico.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
                 st.plotly_chart(fig_politico,use_container_width=True)
             else:
-                fig_politico=px.bar(toppol, x='porcentagem_prop_mean', y='nomeUrna',
+                fig_politico=px.bar(toppol, x='valor_ranking', y='nomeUrna',
                 height=600, labels=dict(nomeUrna="", porcentagem_prop_mean='Porcentagem'), orientation='h')
                 fig_politico["data"][0]["marker"]["color"] = ["blue" if c == politice_enfase_tema_primeiro else "#C0C0C0" for c in fig_politico["data"][0]["y"]]
                 fig_politico.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
@@ -1291,7 +1722,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "Cidadania ( CIDADANIA )":
                 legenda = 23
@@ -1306,7 +1737,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "Movimento Democrático Brasileiro ( MDB )":
                 legenda = 15
@@ -1321,7 +1752,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "Partido Comunista do Brasil ( PCdoB )":
                 legenda = 65
@@ -1336,7 +1767,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "Partido da Mobilização Nacional ( PMN )":
                 legenda = 33
@@ -1351,7 +1782,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "Partido do Socialismo e Liberadade ( PSOL )":
                 legenda = 50
@@ -1366,7 +1797,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "Partido Democrático Trabalhista ( PDT )":
                 legenda = 12
@@ -1381,7 +1812,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "Partido dos Trabalhadores ( PT )":
                 legenda = 13
@@ -1396,7 +1827,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "Partido Liberal ( PL )":
                 legenda = 22
@@ -1411,7 +1842,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "Partido Novo ( NOVO )":
                 legenda = 30
@@ -1426,7 +1857,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "Partido Republicano da Ordem Social ( PROS )":
                 legenda = 90
@@ -1441,7 +1872,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "Partido Social Cristão ( PSC )":
                 legenda = 20
@@ -1456,7 +1887,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "Partido Social Democracia Brasileira ( PSDB )":
                 legenda = 45
@@ -1471,7 +1902,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "Partido Social Democrático ( PSD )":
                 legenda = 55
@@ -1479,14 +1910,14 @@ if pol_part == 'Ainda não decidi':
                 quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
-                    st.image("partidos/PSDB.jpeg", width=150)
+                    st.image("partidos/PSD.jpeg", width=150)
                 with gol2:
                     st.success(f"""
                         * 🏛️ Partido: **{part_enfase_tema_primeiro}**
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "Partido Socialista Brasileiro ( PSB )":
                 legenda = 40
@@ -1501,7 +1932,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "Partido Trabalhista Brasileiro ( PTB )":
                 legenda = 14
@@ -1516,7 +1947,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "Partido Verde ( PV )":
                 legenda = 43
@@ -1531,7 +1962,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "Patriota ( PATRIOTA )":
                 legenda = 51
@@ -1546,7 +1977,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "Podemos ( PODEMOS )":
                 legenda = 19
@@ -1561,7 +1992,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "Progressista ( PP )":
                 legenda = 11
@@ -1576,7 +2007,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "Rede Sustentabilidade ( REDE )":
                 legenda = 18
@@ -1591,7 +2022,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "Republicanos ( REPUBLICANOS )":
                 legenda = 10
@@ -1606,7 +2037,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
 
                         """)
             if part_enfase_tema_primeiro == "Solidariedade ( SOLIDARIEDADE )":
@@ -1622,7 +2053,7 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
             if part_enfase_tema_primeiro == "União Brasil ( UNIÃO )":
                 legenda = 44
@@ -1637,13 +2068,13 @@ if pol_part == 'Ainda não decidi':
 
                         * ✅ Número de urna: **{legenda}**
 
-                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
                         """)
 
 
             st.header("📊 Comparativo partidário")
-            fig_partido=px.bar(toppart, x='porcentagem_prop_mean_partido', y='partido_extenso',
-            height=600, labels=dict(partido_extenso="", porcentagem_prop_mean_partido='Porcentagem'), orientation='h')
+            fig_partido=px.bar(toppart, x='valor_ranking', y='index',
+            height=600, labels=dict(index="", valor_ranking='Porcentagem'), orientation='h')
             fig_partido["data"][0]["marker"]["color"] = ["blue" if c == part_enfase_tema_primeiro else "#C0C0C0" for c in fig_partido["data"][0]["y"]]
             fig_partido.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
             st.plotly_chart(fig_partido,use_container_width=True)
@@ -1681,4 +2112,7 @@ if pol_part == 'Ainda não decidi':
                 with open(file_name) as f:
                     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
             local_css("style.css")
+
+
+# google analytics aqui!
 
