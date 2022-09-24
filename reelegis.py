@@ -529,6 +529,372 @@ if pol_part == 'Partido':
         #st.error(f'Alguns partidos podem não ter sido eleitos na Unidade Federativa {uf_escolha}.')
         if escolha_partido_do_estado != '':
             f_par23 = f_par2.loc[f_par2.partido_ext_sigla == escolha_partido_do_estado, :]
+            if escolha_partido_do_estado == "Avante ( AVANTE )":
+                legenda = 70
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/AVANTE.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Cidadania ( CIDADANIA )":
+                legenda = 23
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/CIDADANIA.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Movimento Democrático Brasileiro ( MDB )":
+                legenda = 15
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/MDB.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Partido Comunista do Brasil ( PCdoB )":
+                legenda = 65
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PCdoB.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Partido da Mobilização Nacional ( PMN )":
+                legenda = 33
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PMN.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Partido do Socialismo e Liberadade ( PSOL )":
+                legenda = 50
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PSOL.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Partido Democrático Trabalhista ( PDT )":
+                legenda = 12
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PDT.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Partido dos Trabalhadores ( PT )":
+                legenda = 13
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PT.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Partido Liberal ( PL )":
+                legenda = 22
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PL.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Partido Novo ( NOVO )":
+                legenda = 30
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/NOVO.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Partido Republicano da Ordem Social ( PROS )":
+                legenda = 90
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PROS.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Partido Social Cristão ( PSC )":
+                legenda = 20
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PSC.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Partido Social Democracia Brasileira ( PSDB )":
+                legenda = 45
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PSDB.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Partido Social Democrático ( PSD )":
+                legenda = 55
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PSDB.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Partido Socialista Brasileiro ( PSB )":
+                legenda = 40
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PSB.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Partido Trabalhista Brasileiro ( PTB )":
+                legenda = 14
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PTB.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Partido Verde ( PV )":
+                legenda = 43
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PV.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Patriota ( PATRIOTA )":
+                legenda = 51
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PATRIOTA.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Podemos ( PODEMOS )":
+                legenda = 19
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PODE.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Progressista ( PP )":
+                legenda = 11
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PP.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Rede Sustentabilidade ( REDE )":
+                legenda = 18
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/REDE.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Republicanos ( REPUBLICANOS )":
+                legenda = 10
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/REPUBLICANOS.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "Solidariedade ( SOLIDARIEDADE )":
+                legenda = 77
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/SOLIDARIEDADE.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if escolha_partido_do_estado == "União Brasil ( UNIÃO )":
+                legenda = 44
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/UNIAO.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{escolha_partido_do_estado}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+
+
+
+
+
+
             f23 = pd.DataFrame(f_par23)
                     #f.nomeUrna = f.nomeUrna.astype('string')
             perc23 = f23.Tema.value_counts() / len(f23) * 100
@@ -581,28 +947,28 @@ if pol_part == 'Partido':
 
             #st.header(f'Taxa _per capita_ de propostas apresentadas pelo {escolha_partido_do_estado} na Unidade Federativa {uf_escolha}')
             fig_partido=px.bar(per_capita, height=600, labels=dict(partido_ext_sigla="", value='Taxa por parlamentar'), orientation='h')
-            fig_partido["data"][0]["marker"]["color"] = ["blue" if c == escolha_partido_do_estado else "#C0C0C0" for c in fig_partido["data"][0]["y"]]
+            #fig_partido["data"][0]["marker"]["color"] = ["blue" if c == escolha_partido_do_estado else "#C0C0C0" for c in fig_partido["data"][0]["y"]]
             fig_partido.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
             st.plotly_chart(fig_partido,use_container_width=True)
 
             ### POSTS CANVA INSTAGRAM ###
 
-            #def load_enfase_post():
-            #    data_enfase_post = pd.read_excel('media-estados-POST.xlsx')
-            #    return data_enfase_post
+            def load_enfase_post():
+                data_enfase_post = pd.read_excel('media-estados-POST.xlsx')
+                return data_enfase_post
 
-            #enfase_post = load_enfase_post()
-            #enf_tematica_post_estado = enfase_post.loc[enfase_post.estado == uf_escolha, :]
-            #enfase_grafico_POST = enf_tematica_post_estado[['label_pt', 'prop_mean']]
+            enfase_post = load_enfase_post()
+            enf_tematica_post_estado = enfase_post.loc[enfase_post.estado == uf_escolha, :]
+            enfase_grafico_POST = enf_tematica_post_estado[['label_pt', 'prop_mean']]
             #st.table(enfase_grafico_POST)
-            #enfase_grafico_POST.prop_mean = enfase_grafico_POST.prop_mean * 100
-            #estado_parla_POST = px.bar(enfase_grafico_POST, x='prop_mean', y='label_pt', height=500, color='prop_mean',
+            enfase_grafico_POST.prop_mean = enfase_grafico_POST.prop_mean * 100
+            estado_parla_POST = px.bar(enfase_grafico_POST, x='prop_mean', y='label_pt', height=500, color='prop_mean',
             #color_continuous_scale=px.colors.sequential.Viridis,
-            #color_continuous_scale='Sunsetdark',
+            color_continuous_scale='Sunsetdark',
             # site com as cores: https://plotly.com/python/builtin-colorscales/
-            #labels=dict(label_pt="", prop_mean="Ênfase Temática %"), orientation='h')
-            #estado_parla_POST.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
-            #st.plotly_chart(estado_parla_POST)
+            labels=dict(label_pt="", prop_mean="Ênfase Temática %"), orientation='h')
+            estado_parla_POST.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
+            st.plotly_chart(estado_parla_POST)
 
             ### FIM CANVA
 
@@ -735,6 +1101,7 @@ if pol_part == 'Ainda não decidi':
     data_enfase = load_enfase()
 
     data_enfase = data_enfase.dropna()
+    enfase = enfase.dropna()
     data_enfase = data_enfase[data_enfase.nomeUrna != 'Não está concorrendo']
     enfase = enfase[enfase.partido_extenso != 'Sem Partido ( Sem Partido )']
     enfase = enfase[enfase.partido_extenso != 'Partido Popular Socialista ( PPS )']
@@ -758,8 +1125,8 @@ if pol_part == 'Ainda não decidi':
             st.info(ementa.index[0])
 
 
-            decidi_porcentagem = cand_ideal[['nomeUrna', 'label_pt', 'prop_mean']]
-            decidi_porcentagem['porcentagem_prop_mean'] = decidi_porcentagem['prop_mean'] * 100 /  (sum(decidi_porcentagem['prop_mean']))
+            decidi_porcentagem = cand_ideal[['nomeUrna', 'label_pt', 'prop_mean', 'sexo']]
+            decidi_porcentagem['porcentagem_prop_mean'] = decidi_porcentagem['prop_mean'] * 100 #/  (sum(decidi_porcentagem['prop_mean']))
 
             #top_politico = decidi_porcentagem['nomeUrna']
 
@@ -767,8 +1134,18 @@ if pol_part == 'Ainda não decidi':
             ascending=False)
             #st.write(toppol)
             politice_enfase_tema_primeiro = toppol['nomeUrna'].iloc[0]
+            genero_primeire = toppol['sexo'].iloc[0]
             #st.write(politice_enfase_tema)
             politice_enfase_tema_ultimo = toppol['nomeUrna'].iloc[-1]
+
+            #genero = politice_enfase_tema_primeiro['sexo']
+            if genero_primeire == 'M':
+                elu_delu = 'Candidato'
+                artigo = "o"
+            else:
+                elu_delu = 'Candidata'
+                artigo = "a"
+
 
             #top_partido = cand_ideal_partido['partido_ext_sigla'].value_counts()
             #toppart = pd.DataFrame(data=top_partido)
@@ -777,7 +1154,7 @@ if pol_part == 'Ainda não decidi':
             random_val_partido = enf_tematica_deputado.loc[enf_tematica_deputado.label_pt == tema, :]
             cand_ideal_partido = random_val_partido.loc[random_val_partido.label_pt == tema]
             decidi_porcentagem_partido = cand_ideal_partido[['partido_extenso', 'label_pt', 'prop_mean']]
-            decidi_porcentagem_partido['porcentagem_prop_mean_partido'] = decidi_porcentagem_partido['prop_mean'] * 100 /  (sum(decidi_porcentagem_partido['prop_mean']))
+            decidi_porcentagem_partido['porcentagem_prop_mean_partido'] = decidi_porcentagem_partido['prop_mean'] * 100 #/  (sum(decidi_porcentagem_partido['prop_mean']))
 
             toppart = pd.DataFrame(data=decidi_porcentagem_partido).sort_values(by = ['porcentagem_prop_mean_partido'],
             ascending=False)
@@ -787,9 +1164,10 @@ if pol_part == 'Ainda não decidi':
             part_enfase_tema_ultimo = toppart['partido_extenso'].iloc[-1]
 
 
-
-            st.success(f'Com base na sua preferência pelo tema de **{tema}**, na Unidade Federativa {uf_escolha}, **{politice_enfase_tema_primeiro}** e o **{part_enfase_tema_primeiro}** são os que mais enfatizaram o tema. Veja abaixo o comparativo dos candidatos e dos partidos que enfatizam o tema de **{tema}**.')
-            st.title('👤 Candidato ideal')
+            st.title('Afinidade temática')
+            st.success(f'**{politice_enfase_tema_primeiro}** é {artigo} {elu_delu} à reeleição que mais enfatizou o tema **{tema}** nas propostas apresentadas durante seu mandato. Por sua vez, o **{part_enfase_tema_primeiro}** é o partido cujas propostas de deputados mais enfatizaram o tema **{tema}** ao longo da legislatura. Veja abaixo o comparativo dos candidatos e dos partidos.')
+            #st.success(f'Com base na sua preferência pelo tema de **{tema}**, na Unidade Federativa {uf_escolha}, **{politice_enfase_tema_primeiro}** e o **{part_enfase_tema_primeiro}** são os que mais enfatizaram o tema. Veja abaixo o comparativo dos candidatos e dos partidos que enfatizam o tema de **{tema}**.')
+            st.header(f'👤 {elu_delu}')
             st.subheader(f'Parlamentar com **maior** ênfase em **{tema}**: **{politice_enfase_tema_primeiro}**')
 
             #####################
@@ -896,8 +1274,371 @@ if pol_part == 'Ainda não decidi':
 
 
             #st.info(f'{politice_enfase_tema_ultimo} apresentou **menor** ênfase em {tema}.')
-            st.title('🏛️ Partido ideal')
+            st.header('🏛️ Partido')
             st.header(f'Partido com **maior** ênfase em **{tema}**: **{part_enfase_tema_primeiro}**')
+            if part_enfase_tema_primeiro == "Avante ( AVANTE )":
+                legenda = 70
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/AVANTE.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "Cidadania ( CIDADANIA )":
+                legenda = 23
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/CIDADANIA.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "Movimento Democrático Brasileiro ( MDB )":
+                legenda = 15
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/MDB.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "Partido Comunista do Brasil ( PCdoB )":
+                legenda = 65
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PCdoB.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "Partido da Mobilização Nacional ( PMN )":
+                legenda = 33
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PMN.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "Partido do Socialismo e Liberadade ( PSOL )":
+                legenda = 50
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PSOL.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "Partido Democrático Trabalhista ( PDT )":
+                legenda = 12
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PDT.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "Partido dos Trabalhadores ( PT )":
+                legenda = 13
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PT.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "Partido Liberal ( PL )":
+                legenda = 22
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PL.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "Partido Novo ( NOVO )":
+                legenda = 30
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/NOVO.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "Partido Republicano da Ordem Social ( PROS )":
+                legenda = 90
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PROS.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "Partido Social Cristão ( PSC )":
+                legenda = 20
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PSC.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "Partido Social Democracia Brasileira ( PSDB )":
+                legenda = 45
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PSDB.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "Partido Social Democrático ( PSD )":
+                legenda = 55
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PSDB.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "Partido Socialista Brasileiro ( PSB )":
+                legenda = 40
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PSB.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "Partido Trabalhista Brasileiro ( PTB )":
+                legenda = 14
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PTB.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "Partido Verde ( PV )":
+                legenda = 43
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PV.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "Patriota ( PATRIOTA )":
+                legenda = 51
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PATRIOTA.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "Podemos ( PODEMOS )":
+                legenda = 19
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PODE.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "Progressista ( PP )":
+                legenda = 11
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/PP.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "Rede Sustentabilidade ( REDE )":
+                legenda = 18
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/REDE.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "Republicanos ( REPUBLICANOS )":
+                legenda = 10
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/REPUBLICANOS.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+
+                        """)
+            if part_enfase_tema_primeiro == "Solidariedade ( SOLIDARIEDADE )":
+                legenda = 77
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/SOLIDARIEDADE.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+            if part_enfase_tema_primeiro == "União Brasil ( UNIÃO )":
+                legenda = 44
+                np = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(np)
+                gol, mid, gol2 = st.beta_columns([5,1,20])
+                with gol:
+                    st.image("partidos/UNIAO.jpeg", width=150)
+                with gol2:
+                    st.success(f"""
+                        * 🏛️ Partido: **{part_enfase_tema_primeiro}**
+
+                        * ✅ Número de urna: **{legenda}**
+
+                        * 👤 Quantidade de parlamentares concorrendo à reeleição: **{quantidade_parlamentares}**
+                        """)
+
+
             st.header("📊 Comparativo partidário")
             fig_partido=px.bar(toppart, x='porcentagem_prop_mean_partido', y='partido_extenso',
             height=600, labels=dict(partido_extenso="", porcentagem_prop_mean_partido='Porcentagem'), orientation='h')
@@ -938,6 +1679,3 @@ if pol_part == 'Ainda não decidi':
                 with open(file_name) as f:
                     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
             local_css("style.css")
-
-
-# google analytics aqui!
