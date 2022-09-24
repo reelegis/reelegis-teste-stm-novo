@@ -1599,7 +1599,7 @@ if pol_part == 'Ainda não decidi':
             part_enfase_tema_ultimo = toppart['index'].iloc[-1]
 
 
-            st.title('Indicador de Afinidade Temática')
+            st.title('Engajamento Temático')
             maior_enfase_percent = toppol.iloc[:1]
             porcentagem = int(maior_enfase_percent['porcentagem_prop_mean'].iloc[:1])
             maior_enfase_percent_part = toppart.iloc[:1]
@@ -1613,16 +1613,16 @@ if pol_part == 'Ainda não decidi':
             p3 = round(por_parlamentar.iloc[0])
             #por_dia = int(por_dia['dias'].iloc[:1])
             st.success(f"""
-            **{politice_enfase_tema_primeiro}** é {artigo} {elu_delu} à reeleição com maior Indicador de Afinidade para o tema {tema}. De 100% de sua agenda, **{porcentagem}%** de sua ênfase temática foi dedicada ao tema de **{tema}**. E, durante seu mandato, apresentou propostas **{p2}** por dia.
+            **{politice_enfase_tema_primeiro}** é {artigo} {elu_delu} à reeleição por {uf_escolha} com atuação de maior engajamento em {tema}. Identificamos que **{porcentagem}%** da ênfase de suas propostas está associada ao tema de {tema}. Durante seu mandato, apresentou propostas **{p2}** por dia.
 
-            Por sua vez, o **{part_enfase_tema_primeiro}** é o partido cujas propostas de deputados tiveram maior resultado no Indicador de Afinidade para o tema de {tema}. De 100% de sua agenda, **{porcentagem_part}%** de sua ênfase temática foi dedicada ao tema. O partido apresentou **{p3}** propostas por parlamentar.
+            O **{part_enfase_tema_primeiro}** é o partido cuja atuação de seus deputados teve maior engajamento para o tema {tema}. Identificamos que **{porcentagem_part}%** de sua ênfase temática foi dedicada ao tema. Em média, o partido apresentou **{p3}** propostas por parlamentar.
 
             Veja abaixo o comparativo dos candidatos e dos partidos.
                         """)
             #que mais enfatizou o tema **{tema}** nas propostas apresentadas durante seu mandato. Por sua vez, o **{part_enfase_tema_primeiro}** é o partido cujas propostas de deputados mais enfatizaram o tema **{tema}** ao longo da legislatura. Veja abaixo o comparativo dos candidatos e dos partidos.')
             #st.success(f'Com base na sua preferência pelo tema de **{tema}**, na Unidade Federativa {uf_escolha}, **{politice_enfase_tema_primeiro}** e o **{part_enfase_tema_primeiro}** são os que mais enfatizaram o tema. Veja abaixo o comparativo dos candidatos e dos partidos que enfatizam o tema de **{tema}**.')
             st.header(f'👤 {elu_delu}')
-            st.subheader(f'Parlamentar com **maior** ênfase em **{tema}**: **{politice_enfase_tema_primeiro}**')
+            st.subheader(f'Parlamentar com **maior** engajamento em **{tema}**: **{politice_enfase_tema_primeiro}**')
 
             ###########
             #### dias #
@@ -1730,7 +1730,7 @@ if pol_part == 'Ainda não decidi':
 
             #st.info(f'{politice_enfase_tema_ultimo} apresentou **menor** ênfase em {tema}.')
             st.header('🏛️ Partido')
-            st.header(f'Partido com **maior** ênfase em **{tema}**: **{part_enfase_tema_primeiro}**')
+            st.header(f'Partido com **maior** engajamento em **{tema}**: **{part_enfase_tema_primeiro}**')
             if part_enfase_tema_primeiro == "Avante ( AVANTE )":
                 legenda = 70
                 nome_parlamentar = f_par23['nomeUrna'].unique()
@@ -2134,7 +2134,6 @@ if pol_part == 'Ainda não decidi':
                 with open(file_name) as f:
                     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
             local_css("style.css")
-
 
 # google analytics aqui!
 
