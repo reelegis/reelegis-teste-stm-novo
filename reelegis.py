@@ -531,8 +531,8 @@ if pol_part == 'Partido':
             f_par23 = f_par2.loc[f_par2.partido_ext_sigla == escolha_partido_do_estado, :]
             if escolha_partido_do_estado == "Avante ( AVANTE )":
                 legenda = 70
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/AVANTE.jpeg", width=150)
@@ -546,8 +546,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Cidadania ( CIDADANIA )":
                 legenda = 23
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/CIDADANIA.jpeg", width=150)
@@ -561,8 +561,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Movimento Democrático Brasileiro ( MDB )":
                 legenda = 15
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/MDB.jpeg", width=150)
@@ -576,8 +576,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Partido Comunista do Brasil ( PCdoB )":
                 legenda = 65
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PCdoB.jpeg", width=150)
@@ -591,8 +591,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Partido da Mobilização Nacional ( PMN )":
                 legenda = 33
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PMN.jpeg", width=150)
@@ -606,8 +606,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Partido do Socialismo e Liberadade ( PSOL )":
                 legenda = 50
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PSOL.jpeg", width=150)
@@ -621,8 +621,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Partido Democrático Trabalhista ( PDT )":
                 legenda = 12
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PDT.jpeg", width=150)
@@ -636,8 +636,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Partido dos Trabalhadores ( PT )":
                 legenda = 13
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PT.jpeg", width=150)
@@ -651,8 +651,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Partido Liberal ( PL )":
                 legenda = 22
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PL.jpeg", width=150)
@@ -666,8 +666,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Partido Novo ( NOVO )":
                 legenda = 30
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/NOVO.jpeg", width=150)
@@ -681,8 +681,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Partido Republicano da Ordem Social ( PROS )":
                 legenda = 90
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PROS.jpeg", width=150)
@@ -696,8 +696,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Partido Social Cristão ( PSC )":
                 legenda = 20
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PSC.jpeg", width=150)
@@ -711,8 +711,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Partido Social Democracia Brasileira ( PSDB )":
                 legenda = 45
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PSDB.jpeg", width=150)
@@ -726,8 +726,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Partido Social Democrático ( PSD )":
                 legenda = 55
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PSDB.jpeg", width=150)
@@ -741,8 +741,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Partido Socialista Brasileiro ( PSB )":
                 legenda = 40
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PSB.jpeg", width=150)
@@ -756,8 +756,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Partido Trabalhista Brasileiro ( PTB )":
                 legenda = 14
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PTB.jpeg", width=150)
@@ -771,8 +771,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Partido Verde ( PV )":
                 legenda = 43
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PV.jpeg", width=150)
@@ -786,8 +786,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Patriota ( PATRIOTA )":
                 legenda = 51
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PATRIOTA.jpeg", width=150)
@@ -801,8 +801,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Podemos ( PODEMOS )":
                 legenda = 19
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PODE.jpeg", width=150)
@@ -816,8 +816,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Progressista ( PP )":
                 legenda = 11
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PP.jpeg", width=150)
@@ -831,8 +831,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Rede Sustentabilidade ( REDE )":
                 legenda = 18
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/REDE.jpeg", width=150)
@@ -846,8 +846,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Republicanos ( REPUBLICANOS )":
                 legenda = 10
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/REPUBLICANOS.jpeg", width=150)
@@ -861,8 +861,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "Solidariedade ( SOLIDARIEDADE )":
                 legenda = 77
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/SOLIDARIEDADE.jpeg", width=150)
@@ -876,8 +876,8 @@ if pol_part == 'Partido':
                         """)
             if escolha_partido_do_estado == "União Brasil ( UNIÃO )":
                 legenda = 44
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/UNIAO.jpeg", width=150)
@@ -1047,6 +1047,7 @@ if pol_part == 'Partido':
             localizar_partido = localizar_estado.loc[localizar_estado.partido_ext_sigla == escolha_partido_do_estado, :]
 
             tema_parlamentar = localizar_partido['label_pt'].unique()
+            #st.write(type(tema_parlamentar))
             #st.table(tema_parlamentar)
                 #st.checkbox('Consultar propostas apresentadas deste Parlamentar por tema', False):
             #tema = lista_temas
@@ -1278,8 +1279,8 @@ if pol_part == 'Ainda não decidi':
             st.header(f'Partido com **maior** ênfase em **{tema}**: **{part_enfase_tema_primeiro}**')
             if part_enfase_tema_primeiro == "Avante ( AVANTE )":
                 legenda = 70
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/AVANTE.jpeg", width=150)
@@ -1293,8 +1294,8 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "Cidadania ( CIDADANIA )":
                 legenda = 23
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/CIDADANIA.jpeg", width=150)
@@ -1308,8 +1309,8 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "Movimento Democrático Brasileiro ( MDB )":
                 legenda = 15
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/MDB.jpeg", width=150)
@@ -1323,7 +1324,7 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "Partido Comunista do Brasil ( PCdoB )":
                 legenda = 65
-                np = f_par23['nomeUrna'].unique()
+                nome_parlamentar = f_par23['nomeUrna'].unique()
                 quantidade_parlamentares = len(np)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
@@ -1338,8 +1339,8 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "Partido da Mobilização Nacional ( PMN )":
                 legenda = 33
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PMN.jpeg", width=150)
@@ -1353,8 +1354,8 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "Partido do Socialismo e Liberadade ( PSOL )":
                 legenda = 50
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PSOL.jpeg", width=150)
@@ -1368,8 +1369,8 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "Partido Democrático Trabalhista ( PDT )":
                 legenda = 12
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PDT.jpeg", width=150)
@@ -1383,8 +1384,8 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "Partido dos Trabalhadores ( PT )":
                 legenda = 13
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PT.jpeg", width=150)
@@ -1398,8 +1399,8 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "Partido Liberal ( PL )":
                 legenda = 22
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PL.jpeg", width=150)
@@ -1413,8 +1414,8 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "Partido Novo ( NOVO )":
                 legenda = 30
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/NOVO.jpeg", width=150)
@@ -1428,8 +1429,8 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "Partido Republicano da Ordem Social ( PROS )":
                 legenda = 90
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PROS.jpeg", width=150)
@@ -1443,8 +1444,8 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "Partido Social Cristão ( PSC )":
                 legenda = 20
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PSC.jpeg", width=150)
@@ -1458,8 +1459,8 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "Partido Social Democracia Brasileira ( PSDB )":
                 legenda = 45
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PSDB.jpeg", width=150)
@@ -1473,8 +1474,8 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "Partido Social Democrático ( PSD )":
                 legenda = 55
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PSDB.jpeg", width=150)
@@ -1488,8 +1489,8 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "Partido Socialista Brasileiro ( PSB )":
                 legenda = 40
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PSB.jpeg", width=150)
@@ -1518,8 +1519,8 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "Partido Verde ( PV )":
                 legenda = 43
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PV.jpeg", width=150)
@@ -1533,8 +1534,8 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "Patriota ( PATRIOTA )":
                 legenda = 51
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PATRIOTA.jpeg", width=150)
@@ -1548,8 +1549,8 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "Podemos ( PODEMOS )":
                 legenda = 19
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PODE.jpeg", width=150)
@@ -1563,8 +1564,8 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "Progressista ( PP )":
                 legenda = 11
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PP.jpeg", width=150)
@@ -1578,8 +1579,8 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "Rede Sustentabilidade ( REDE )":
                 legenda = 18
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/REDE.jpeg", width=150)
@@ -1593,8 +1594,8 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "Republicanos ( REPUBLICANOS )":
                 legenda = 10
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/REPUBLICANOS.jpeg", width=150)
@@ -1609,8 +1610,8 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "Solidariedade ( SOLIDARIEDADE )":
                 legenda = 77
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/SOLIDARIEDADE.jpeg", width=150)
@@ -1624,8 +1625,8 @@ if pol_part == 'Ainda não decidi':
                         """)
             if part_enfase_tema_primeiro == "União Brasil ( UNIÃO )":
                 legenda = 44
-                np = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                nome_parlamentar = f_par23['nomeUrna'].unique()
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/UNIAO.jpeg", width=150)
@@ -1679,3 +1680,4 @@ if pol_part == 'Ainda não decidi':
                 with open(file_name) as f:
                     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
             local_css("style.css")
+
