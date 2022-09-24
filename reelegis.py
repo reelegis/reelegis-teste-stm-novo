@@ -1779,7 +1779,7 @@ if pol_part == 'Ainda não decidi':
             if part_enfase_tema_primeiro == "Partido Comunista do Brasil ( PCdoB )":
                 legenda = 65
                 nome_parlamentar = f_par23['nomeUrna'].unique()
-                quantidade_parlamentares = len(np)
+                quantidade_parlamentares = len(nome_parlamentar)
                 gol, mid, gol2 = st.beta_columns([5,1,20])
                 with gol:
                     st.image("partidos/PCdoB.jpeg", width=150)
