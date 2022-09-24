@@ -1106,6 +1106,7 @@ if pol_part == 'Ainda não decidi':
     data_enfase = data_enfase[data_enfase.nomeUrna != 'Não está concorrendo']
     enfase = enfase[enfase.partido_extenso != 'Sem Partido ( Sem Partido )']
     enfase = enfase[enfase.partido_extenso != 'Partido Popular Socialista ( PPS )']
+    enfase = enfase[enfase.partido_extenso != 'Partido Humanista da Solidariedade ( PHS )']
     uf = data_enfase['estado'].unique()
     uf = np.append(uf, '')
     uf.sort()
