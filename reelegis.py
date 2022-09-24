@@ -1716,13 +1716,13 @@ if pol_part == 'Ainda não decidi':
             if condicao_split_parlamentar > 29:
 
                 fig_politico=px.bar(toppol, x='normalizado_politico', y='nomeUrna',
-                height=1500, labels=dict(nomeUrna="", normalizado_politico='Afinidade temática'), orientation='h')
+                height=1500, labels=dict(nomeUrna="", normalizado_politico='Engajamento Temático'), orientation='h')
                 fig_politico["data"][0]["marker"]["color"] = ["blue" if c == politice_enfase_tema_primeiro else "#C0C0C0" for c in fig_politico["data"][0]["y"]]
                 fig_politico.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
                 st.plotly_chart(fig_politico,use_container_width=True)
             else:
                 fig_politico=px.bar(toppol, x='normalizado_politico', y='nomeUrna',
-                height=600, labels=dict(nomeUrna="", normalizado_politico='Afinidade temática'), orientation='h')
+                height=600, labels=dict(nomeUrna="", normalizado_politico='Engajamento Temático'), orientation='h')
                 fig_politico["data"][0]["marker"]["color"] = ["blue" if c == politice_enfase_tema_primeiro else "#C0C0C0" for c in fig_politico["data"][0]["y"]]
                 fig_politico.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
                 st.plotly_chart(fig_politico,use_container_width=True)
@@ -2096,7 +2096,7 @@ if pol_part == 'Ainda não decidi':
 
             st.header("📊 Comparativo partidário")
             fig_partido=px.bar(toppart, x='normalizado_partido', y='index',
-            height=600, labels=dict(index="", valor_ranking='Afinidade Temática'), orientation='h')
+            height=600, labels=dict(index="", normalizado_partido='Engajamento Temático'), orientation='h')
             fig_partido["data"][0]["marker"]["color"] = ["blue" if c == part_enfase_tema_primeiro else "#C0C0C0" for c in fig_partido["data"][0]["y"]]
             fig_partido.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
             st.plotly_chart(fig_partido,use_container_width=True)
