@@ -1613,15 +1613,15 @@ if pol_part == 'Ainda não decidi':
             p3 = round(por_parlamentar.iloc[0])
             #por_dia = int(por_dia['dias'].iloc[:1])
             st.success(f"""
-            **{politice_enfase_tema_primeiro}** é {artigo} {elu_delu} à reeleição por {uf_escolha} com atuação de maior engajamento em {tema}. Identificamos que **{porcentagem}%** da ênfase de suas propostas está associada ao tema de {tema}. Durante seu mandato, apresentou propostas **{p2}** por dia.
+            **{politice_enfase_tema_primeiro}** é {artigo} {elu_delu} à reeleição por **{uf_escolha}** com atuação de maior engajamento em **{tema}**. Identificamos que **{porcentagem}%** da ênfase de suas propostas está associada ao tema de **{tema}**. Durante seu mandato, apresentou propostas **{p2}** por dia.
 
-            O **{part_enfase_tema_primeiro}** é o partido cuja atuação de seus deputados teve maior engajamento para o tema {tema}. Identificamos que **{porcentagem_part}%** de sua ênfase temática foi dedicada ao tema. Em média, o partido apresentou **{p3}** propostas por parlamentar.
+            O **{part_enfase_tema_primeiro}** é o partido cuja atuação de seus deputados teve maior engajamento para o tema **{tema}**. Identificamos que **{porcentagem_part}%** de sua ênfase temática foi dedicada ao tema. Em média, o partido apresentou **{p3}** propostas por parlamentar.
 
             Veja abaixo o comparativo dos candidatos e dos partidos.
                         """)
             #que mais enfatizou o tema **{tema}** nas propostas apresentadas durante seu mandato. Por sua vez, o **{part_enfase_tema_primeiro}** é o partido cujas propostas de deputados mais enfatizaram o tema **{tema}** ao longo da legislatura. Veja abaixo o comparativo dos candidatos e dos partidos.')
             #st.success(f'Com base na sua preferência pelo tema de **{tema}**, na Unidade Federativa {uf_escolha}, **{politice_enfase_tema_primeiro}** e o **{part_enfase_tema_primeiro}** são os que mais enfatizaram o tema. Veja abaixo o comparativo dos candidatos e dos partidos que enfatizam o tema de **{tema}**.')
-            st.header(f'👤 {elu_delu}')
+            #st.header(f'👤 {elu_delu}')
             st.subheader(f'Parlamentar com **maior** engajamento em **{tema}**: **{politice_enfase_tema_primeiro}**')
 
             ###########
@@ -1729,7 +1729,7 @@ if pol_part == 'Ainda não decidi':
 
 
             #st.info(f'{politice_enfase_tema_ultimo} apresentou **menor** ênfase em {tema}.')
-            st.header('🏛️ Partido')
+            #st.header('🏛️ Partido')
             st.header(f'Partido com **maior** engajamento em **{tema}**: **{part_enfase_tema_primeiro}**')
             if part_enfase_tema_primeiro == "Avante ( AVANTE )":
                 legenda = 70
