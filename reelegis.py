@@ -1613,7 +1613,7 @@ if pol_part == 'Ainda não decidi':
             p3 = round(por_parlamentar.iloc[0])
             #por_dia = int(por_dia['dias'].iloc[:1])
             st.success(f"""
-            **{politice_enfase_tema_primeiro}** é {artigo} {elu_delu} à reeleição por **{uf_escolha}** com atuação de maior engajamento em **{tema}**. Identificamos que **{porcentagem}%** da ênfase de suas propostas está associada ao tema de **{tema}**. Durante seu mandato, apresentou propostas **{p2}** por dia.
+            **{politice_enfase_tema_primeiro}** é {artigo} {elu_delu} à reeleição por **{uf_escolha}** com atuação de maior engajamento em **{tema}**. Identificamos que **{porcentagem}%** da ênfase de suas propostas está associada ao tema de **{tema}**. Durante seu mandato, apresentou **{p2}** propostas por dia.
 
             O **{part_enfase_tema_primeiro}** é o partido cuja atuação de seus deputados teve maior engajamento para o tema **{tema}**. Identificamos que **{porcentagem_part}%** de sua ênfase temática foi dedicada ao tema. Em média, o partido apresentou **{p3}** propostas por parlamentar.
 
