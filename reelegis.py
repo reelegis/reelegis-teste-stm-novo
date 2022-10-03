@@ -170,7 +170,6 @@ if st.checkbox("Estatísticas eleitorais 2022", False):
     st.info(f"""
     **{partido_com_maior_taxa}** está a frente na taxa de reeleição. O partido conta com **{porcentagem_estado_max}%** de Deputados e Deputadas Federais da legislatura anterior.
 
-    Em contrapartida, **{partido_com_menor_taxa}** tem menor taxa de reeleição, com **{minimo_partido}%**, tendo renovação de **{100-minimo_partido}%**.
     """)
 
     st.plotly_chart(figura_partido, use_container_width=True)
