@@ -50,7 +50,7 @@ if st.checkbox("Estatísticas eleitorais 2022", False):
     reeleitos = reeleitos.dropna()
 
     se_reelegeu = reeleitos[reeleitos.reeleito == 'sim'].count()
-    taxa_de_reeleicao = se_reelegeu.iloc[0] /482 * 100
+    taxa_de_reeleicao = se_reelegeu.iloc[0] /513 * 100
     taxa_de_renovacao = 100 -taxa_de_reeleicao
     taxas = [['Taxa de reeleição',taxa_de_reeleicao],['Taxa de renovação', taxa_de_renovacao]]
     taxas = pd.DataFrame(taxas, columns=['Taxa', 'Porcentagem'])
