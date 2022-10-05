@@ -559,8 +559,9 @@ if uf_escolha != '':
         #figura_estado.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'})
         figura_partido.update_yaxes(categoryarray=lista_rotulos_partidos)
         st.info(f"""
-        **{s}** tiveram uma taxa de **{porcentagem_partido_max}%** de reeleição. Em contrapartida, **{s2}** tiveram a menor taxa de reeleição, com **{minimo_partido}%**, tendo uma renovação de **{100-minimo_partido}%**.
+        **{s}** tiveram uma taxa de **{porcentagem_partido_max}%** de reeleição. Em contrapartida, **{s2}** tiveram a menor taxa de reeleição, com **{minimo_partido}%**.
         """)
+
 
         st.plotly_chart(figura_partido, use_container_width=True)
 
