@@ -561,6 +561,16 @@ if uf_escolha != '':
         labels=dict(partido_ext_sigla="", porcentagem="% Porcentagem"))
         #figura_estado.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'})
         figura_partido.update_yaxes(categoryarray=lista_rotulos_partidos)
+        #st.write(s)
+        if len(lista_100.index) == 0:
+            s = max_partido['partido_ext_sigla'].iloc[0]
+
+            #st.write(s)
+
+        else:
+            s = lista.replace(")","), ")
+        if len(lista_sem.index) == 0:
+            s2 = partido_com_menor_taxa
         st.info(f"""
         **{s}** tiveram uma taxa de **{porcentagem_partido_max}%** de reeleição. Em contrapartida, **{s2}** tiveram a menor taxa de reeleição, com **{minimo_partido}%**.
         """)
@@ -584,7 +594,7 @@ if uf_escolha != '':
             # site com as cores: https://plotly.com/python/builtin-colorscales/
         labels=dict(label_pt="", prop_mean="Ênfase Temática %"), orientation='h')
         estado_parla.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
-        st.plotly_chart(estado_parla, use_container_width=True)
+
 
 
             #sorteio = random_val.loc[random_val.label_pt == random_tema]
@@ -600,7 +610,7 @@ if uf_escolha != '':
             #st.write(maior_enfase_label)
         rotulo = maior_enfase_percent['label_pt'].iloc[:1]
         st.info(f'O tema de maior ênfase média nas propostas apresentadas pelos Parlamentares reeleitos do Estado é **{rotulo.to_string(index=False)}**, com **{porcentagem}%** do total.')
-
+        st.plotly_chart(estado_parla, use_container_width=True)
 
 st.header('📢  Conta pra gente!')
 st.warning('Fique à vontade para nos informar sobre algo que queria ter visto nesta aba ou sobre a plataforma, para melhorarmos no futuro!')
@@ -619,6 +629,3 @@ def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 local_css("style.css")
-
-
-            #st.info(f'**{escolha_parlamentar_do_estado}** apresentou **{str(n_proposta_uf)} propostas legislativas** ao total. A maior ênfase temática d{genero.index[0]} foi **{saliente_uf.index[0]}**, com aproximadamente **{first}% do total.**')
