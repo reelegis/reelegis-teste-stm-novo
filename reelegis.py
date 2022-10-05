@@ -99,37 +99,6 @@ st.info(f'**{round(taxa_de_reeleicao)}%** dos parlamentares que concorreram à r
 
 st.plotly_chart(figura_pizza, use_container_width=True)
 
-st.header('Ênfase Temática dos Parlamentares reeleitos no Brasil')
-
-# enfase_total_reeleitos = enfase[enfase.reeleito == 'sim', :]
-# st.write(enfase_total_reeleitos)
-
-nomes_reeleitos = enfase['nomeUrna'].unique()
-quantidade_de_reeleitos_por_estado = len(nomes_reeleitos)
-enfase_grafico = enfase[['label_pt', 'prop_mean']]
-enfase_grafico = enfase_grafico.groupby('label_pt').sum() / quantidade_de_reeleitos_por_estado * 100
-
-estado_parla = px.bar(enfase_grafico, x='prop_mean', height=500, color='prop_mean',
-            #color_continuous_scale=px.colors.sequential.Viridis,
-color_continuous_scale='Sunsetdark',
-            # site com as cores: https://plotly.com/python/builtin-colorscales/
-labels=dict(label_pt="", prop_mean="Ênfase Temática %"), orientation='h')
-estado_parla.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
-st.plotly_chart(estado_parla, use_container_width=True)
-
-maior_enfase = pd.DataFrame(enfase_grafico[['prop_mean']]).sort_values(by = ['prop_mean'],
-ascending=False).reset_index()
-
-            #first = maior_enfase.iloc[:-1].round()
-
-            #maior_enfase_label = maior_enfase.iloc[0]
-maior_enfase_percent = maior_enfase.iloc[:1]
-                #rotulo = maior_enfase_percent['label_pt'].iloc[:0]
-porcentagem = int(maior_enfase_percent['prop_mean'].iloc[:1])
-            #st.write(maior_enfase_label)
-rotulo = maior_enfase_percent['label_pt'].iloc[:1]
-st.info(f'O tema de maior ênfase média nas propostas apresentadas pelos Parlamentares reeleitos no Brasil é **{rotulo.to_string(index=False)}**, com **{porcentagem}%** do total.')
-
 
 
 
@@ -303,6 +272,40 @@ O **{partido_com_maior_taxa}** teve uma taxa de **{porcentagem_estado_max}%** de
 st.plotly_chart(figura_partido, use_container_width=True)
 
 # st.plotly_chart(figura_partido, use_container_width=True)
+
+st.title('Ênfase Temática dos Parlamentares reeleitos no Brasil')
+
+# enfase_total_reeleitos = enfase[enfase.reeleito == 'sim', :]
+# st.write(enfase_total_reeleitos)
+
+nomes_reeleitos = enfase['nomeUrna'].unique()
+quantidade_de_reeleitos_por_estado = len(nomes_reeleitos)
+enfase_grafico = enfase[['label_pt', 'prop_mean']]
+enfase_grafico = enfase_grafico.groupby('label_pt').sum() / quantidade_de_reeleitos_por_estado * 100
+
+estado_parla = px.bar(enfase_grafico, x='prop_mean', height=500, color='prop_mean',
+            #color_continuous_scale=px.colors.sequential.Viridis,
+color_continuous_scale='Sunsetdark',
+            # site com as cores: https://plotly.com/python/builtin-colorscales/
+labels=dict(label_pt="", prop_mean="Ênfase Temática %"), orientation='h')
+estado_parla.update_layout(showlegend=False, yaxis={'categoryorder': 'total ascending'})
+maior_enfase = pd.DataFrame(enfase_grafico[['prop_mean']]).sort_values(by = ['prop_mean'],
+ascending=False).reset_index()
+
+            #first = maior_enfase.iloc[:-1].round()
+
+            #maior_enfase_label = maior_enfase.iloc[0]
+maior_enfase_percent = maior_enfase.iloc[:1]
+                #rotulo = maior_enfase_percent['label_pt'].iloc[:0]
+porcentagem = int(maior_enfase_percent['prop_mean'].iloc[:1])
+            #st.write(maior_enfase_label)
+rotulo = maior_enfase_percent['label_pt'].iloc[:1]
+st.info(f'O tema de maior ênfase média nas propostas apresentadas pelos Parlamentares reeleitos no Brasil é **{rotulo.to_string(index=False)}**, com **{porcentagem}%** do total.')
+
+st.plotly_chart(estado_parla, use_container_width=True)
+
+
+
 
 
 st.title('Consulte os/as parlamentares reeleitos/as do seu estado ⬇️')
@@ -561,7 +564,6 @@ if uf_escolha != '':
         st.info(f"""
         **{s}** tiveram uma taxa de **{porcentagem_partido_max}%** de reeleição. Em contrapartida, **{s2}** tiveram a menor taxa de reeleição, com **{minimo_partido}%**.
         """)
-
 
         st.plotly_chart(figura_partido, use_container_width=True)
 
