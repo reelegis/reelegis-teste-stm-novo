@@ -79,6 +79,8 @@ enfase = load_enfase()
 enfase = enfase.dropna()
 
 
+total = reeleitos['nome_parlamentar'].unique()
+total_reeleicao = len(total)
 
 se_reelegeu = reeleitos[reeleitos.reeleito == 'sim'].count()
 n_divisao = len(reeleitos)
@@ -97,8 +99,8 @@ color_discrete_map={"% reeleitos": '#21ADA8',
 labels=dict(Taxa="", Porcentagem="%"))
 figura_pizza.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'}, title_font_size=23)
 figura_pizza.update_traces(width=.6)
-
-st.info(f'**{round(taxa_de_reeleicao)}%** dos parlamentares que concorreram à reeleição conseguiram uma cadeira na Câmara dos Deputados. Esse resultado representa **{round(taxa_de_reeleicao_geral)}%** das 513 cadeiras da Câmara dos Deputados.') #A Câmara dos Deputados foi renovada em **{round(taxa_de_renovacao)}%**.')
+st.info(f'Dos **{total_reeleicao}** parlamentares que concorreram à reeleição, **{round(taxa_de_reeleicao)}%** conseguiram uma cadeira na Câmara dos Deputados. Esse resultado representa **{round(taxa_de_reeleicao_geral)}%** das 513 cadeiras da Câmara dos Deputados.')
+#st.info(f'**{round(taxa_de_reeleicao)}%** dos parlamentares que concorreram à reeleição conseguiram uma cadeira na Câmara dos Deputados. Esse resultado representa **{round(taxa_de_reeleicao_geral)}%** das 513 cadeiras da Câmara dos Deputados.') #A Câmara dos Deputados foi renovada em **{round(taxa_de_renovacao)}%**.')
 #st.info(f"Nas eleições de 2022, **{round(taxa_de_reeleicao)}%** dos parlamentares concorrendo à reeleição conseguiram se reeleger. Consequentemente, o Congresso Nacional foi renovado em **{round(taxa_de_renovacao)}%**.")
 figura_pizza.update_layout(legend=dict(
     orientation="h",
@@ -272,7 +274,7 @@ if st.checkbox('Clique aqui', False):
     novos_estados_sem_sucesso.rename(columns = {'porcentagem_sem_sucesso_com_cadeiras':'porcentagem'}, inplace = True)
     h = pd.concat([novos_estados_sucesso,novos_estados_sem_sucesso])
 
-    rotulos_estados = por_estado.sort_values(by= 'porcentagem_sucesso_com_cadeiras', ascending=True)
+    rotulos_estados = por_estado.sort_values(by= 'porcentagem_sucesso_com_cadeiras', ascending=False)
     lista_rotulos_estados = rotulos_estados['estado_por_extenso']
 
     figura_estado_renovacao=px.bar(h, x='porcentagem', y='estado_por_extenso', height=650,
@@ -289,6 +291,16 @@ if st.checkbox('Clique aqui', False):
         y=1.02,
         xanchor="right",
         x=1), legend_title_text='')
+    max_min_estado = por_estado.sort_values(by= 'porcentagem_sucesso_com_cadeiras', ascending=False)
+
+    max_estado = max_min_estado.iloc[:1]
+    min_estado = max_min_estado.iloc[:-1]
+    estado_com_maior_taxa = max_estado['estado_por_extenso'].iloc[0]
+    estado_com_menor_taxa = max_min_estado['estado_por_extenso'].iloc[-1]
+    minimo = round(min(max_min_estado['porcentagem_sucesso']))
+
+    st.info(f'A Unidade Federativa com maior taxa de renovação é **{estado_com_menor_taxa}**, com **{100-minimo}%** de renovação na Câmara dos Deputados.')
+
     st.plotly_chart(figura_estado_renovacao, use_container_width=True)
 
 
