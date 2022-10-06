@@ -100,7 +100,12 @@ figura_pizza.update_traces(width=.6)
 
 st.info(f'**{round(taxa_de_reeleicao)}%** dos parlamentares que concorreram à reeleição conseguiram uma cadeira na Câmara dos Deputados. Esse resultado representa **{round(taxa_de_reeleicao_geral)}%** das 513 cadeiras da Câmara dos Deputados.') #A Câmara dos Deputados foi renovada em **{round(taxa_de_renovacao)}%**.')
 #st.info(f"Nas eleições de 2022, **{round(taxa_de_reeleicao)}%** dos parlamentares concorrendo à reeleição conseguiram se reeleger. Consequentemente, o Congresso Nacional foi renovado em **{round(taxa_de_renovacao)}%**.")
-
+figura_pizza.update_layout(legend=dict(
+    orientation="h",
+    yanchor="bottom",
+    y=1.02,
+    xanchor="right",
+    x=1), legend_title_text='')
 st.plotly_chart(figura_pizza, use_container_width=True)
 
 taxa_de_renovacao_geral = 100 -taxa_de_reeleicao_geral
@@ -118,6 +123,12 @@ color_discrete_map={"% reeleição": '#21ADA8',
 labels=dict(Taxa="", Porcentagem="%"))
 figura_pizza_geral.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'}, title_font_size=23)
 figura_pizza_geral.update_traces(width=.6)
+figura_pizza_geral.update_layout(legend=dict(
+    orientation="h",
+    yanchor="bottom",
+    y=1.02,
+    xanchor="right",
+    x=1), legend_title_text='')
 
 st.plotly_chart(figura_pizza_geral, use_container_width=True)
 
@@ -191,6 +202,7 @@ orientation='h', color='reeleitos', #barmode='group', #color_continuous_scale='T
 color_discrete_map={"% reeleitos": '#21ADA8',
 "% não reeleitos": '#C0C0C0'},
 labels=dict(estado_por_extenso="", porcentagem="%"))
+
 #figura_estado.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'})
 figura_estado.update_yaxes(categoryarray=lista_rotulos_estados)
 
@@ -215,7 +227,12 @@ st.info(f'A Unidade Federativa com maior taxa de sucesso na reeleição foi **{e
 #
 # Em contrapartida, **{estado_com_menor_taxa}** tem menor taxa de reeleição, com **{minimo}%**, tendo renovação de **{100-minimo}%**.
 # """)
-
+figura_estado.update_layout(legend=dict(
+    orientation="h",
+    yanchor="bottom",
+    y=1.02,
+    xanchor="right",
+    x=1), legend_title_text='')
 st.plotly_chart(figura_estado, use_container_width=True)
 
     ###
@@ -312,6 +329,14 @@ color_discrete_map={"% reeleitos": '#21ADA8',
 labels=dict(partido_ext_sigla="", porcentagem="%"))
 #figura_estado.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'})
 figura_partido.update_yaxes(categoryarray=lista_rotulos_partidos)
+
+figura_partido.update_layout(legend=dict(
+    orientation="h",
+    yanchor="bottom",
+    y=1.02,
+    xanchor="right",
+    x=1), legend_title_text='')
+
 # st.info(f"""
 # O **{partido_com_maior_taxa}** teve uma taxa de **{porcentagem_partido_max}%** de reeleição. Em contrapartida, **{partido_com_menor_taxa}** teve a menor taxa de reeleição, com **{minimo_partido}%** dos seus deputados reeleitos.
 #
@@ -392,7 +417,13 @@ if uf_escolha != '':
         figura_pizza.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'})
         figura_pizza.update_traces(width=.6)
         st.info(f'**17%** dos deputados e deputadas que tentaram a reeleição conseguiram uma vaga. O estado agora conta com **{round(taxa_de_reeleicao_geral)}%** de reeleitos na Câmara dos Deputados. Uma renovação de de **{round(100-taxa_de_reeleicao_geral)}%**.')
-
+        figura_pizza.update_layout(legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1
+        ), legend_title_text='')
         st.plotly_chart(figura_pizza, use_container_width=True)
 
         ######## renovacao ############
@@ -408,6 +439,12 @@ if uf_escolha != '':
         labels=dict(Taxa="", Porcentagem="%"))
         figura_pizza_geral.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'})
         figura_pizza_geral.update_traces(width=.6)
+        figura_pizza_geral.update_layout(legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1), legend_title_text='')
         st.plotly_chart(figura_pizza_geral, use_container_width=True)
 
 
@@ -482,6 +519,13 @@ if uf_escolha != '':
         labels=dict(partido_ext_sigla="", porcentagem="%"))
         #figura_estado.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'})
         figura_partido.update_yaxes(categoryarray=lista_rotulos_partidos)
+        figura_partido.update_layout(legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1
+        ), legend_title_text='')
         st.info(f"""
         O **Republicanos ( REPUBLICANOS )** teve uma taxa de **100%** de reeleição.
         """)
@@ -542,7 +586,13 @@ if uf_escolha != '':
         figura_pizza.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'})
         figura_pizza.update_traces(width=.6)
 
-
+        figura_pizza.update_layout(legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1
+        ), legend_title_text='')
         ## aqui vem o grafico de reeleicao/renovacao por estado
         filtro_de_reeleitos = reeleicao_no_estado[reeleicao_no_estado.reeleito == 'sim']
         quantidade_de_reeleitos = len(filtro_de_reeleitos)
@@ -568,6 +618,13 @@ if uf_escolha != '':
         labels=dict(Taxa="", Porcentagem="%"))
         figura_pizza_geral.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'})
         figura_pizza_geral.update_traces(width=.6)
+        figura_pizza_geral.update_layout(legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1
+        ), legend_title_text='')
         st.plotly_chart(figura_pizza_geral, use_container_width=True)
 
 
@@ -659,6 +716,13 @@ if uf_escolha != '':
         labels=dict(partido_ext_sigla="", porcentagem="%"))
         #figura_estado.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'})
         figura_partido.update_yaxes(categoryarray=lista_rotulos_partidos)
+        figura_partido.update_layout(legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1
+        ), legend_title_text='')
         #st.write(s)
         if len(lista_100.index) == 0:
             s = max_partido['partido_ext_sigla'].iloc[0]
