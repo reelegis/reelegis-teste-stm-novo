@@ -175,9 +175,11 @@ por_estado.rename(columns = {'vagas':'cadeiras_disponiveis'}, inplace = True)
 
     #por_estado = por_estado.drop(por_estado.columns[], axis=1)
 por_estado['porcentagem_sucesso'] = por_estado['total_sim']/(por_estado['total_sim'] + por_estado['total_nao']) * 100
-#por_estado['porcentagem_sucesso'] = por_estado['total_sim']/(por_estado['total_sim'] + por_estado['total_sim']) * 100
+por_estado['porcentagem_sucesso_com_cadeiras'] = por_estado['total_sim'] / por_estado['cadeiras_disponiveis'] * 100
+por_estado['porcentagem_sem_sucesso_com_cadeiras'] = 100 - por_estado['porcentagem_sucesso_com_cadeiras']
 
 por_estado['porcentagem_sem_sucesso'] = 100 - por_estado['porcentagem_sucesso']
+
 #por_estado['porcentagem_sem_sucesso'] = (1-(por_estado['total_sim']/por_estado['cadeiras_disponiveis']))
 
 reeleitos_por_estado = ["% reeleitos"] * len(por_estado['estado_por_extenso'])
@@ -195,7 +197,6 @@ h = pd.concat([novos_estados_sucesso,novos_estados_sem_sucesso])
 
 rotulos_estados = por_estado.sort_values(by= 'porcentagem_sucesso', ascending=True)
 lista_rotulos_estados = rotulos_estados['estado_por_extenso']
-#st.write(lista_rotulos_estados)
     ## grafico
 figura_estado=px.bar(h, x='porcentagem', y='estado_por_extenso', height=650,
 orientation='h', color='reeleitos', #barmode='group', #color_continuous_scale='Tealgrn',
@@ -257,7 +258,38 @@ st.plotly_chart(figura_estado, use_container_width=True)
     # hover_name = "UF", #the information in the box
     # hover_data =["porcentagem_sucesso","lat","lon"])
     # st.plotly_chart(m)
+st.subheader('⬇️ Visualizar taxas de **Reeleição** e **Renovação** para as 513 cadeiras na Câmara dos Deputados para os Estados')
+if st.checkbox('Clique aqui', False):
+    reeleitos_por_estado = ["% reeleição"] * len(por_estado['estado_por_extenso'])
+    nao_reeleitos_por_estado = ["% renovação"] * len(por_estado['estado_por_extenso'])
+    #st.write(len(por_estado['estado_por_extenso']))
+    novos_estados_sucesso = por_estado[['estado_por_extenso', 'porcentagem_sucesso_com_cadeiras']]
+    novos_estados_sucesso['reeleitos'] = reeleitos_por_estado
+    novos_estados_sucesso.rename(columns = {'porcentagem_sucesso_com_cadeiras':'porcentagem'}, inplace = True)
 
+    novos_estados_sem_sucesso = pd.DataFrame(por_estado[['estado_por_extenso', 'porcentagem_sem_sucesso_com_cadeiras']])
+    novos_estados_sem_sucesso['reeleitos'] = nao_reeleitos_por_estado
+    novos_estados_sem_sucesso.rename(columns = {'porcentagem_sem_sucesso_com_cadeiras':'porcentagem'}, inplace = True)
+    h = pd.concat([novos_estados_sucesso,novos_estados_sem_sucesso])
+
+    rotulos_estados = por_estado.sort_values(by= 'porcentagem_sucesso_com_cadeiras', ascending=True)
+    lista_rotulos_estados = rotulos_estados['estado_por_extenso']
+
+    figura_estado_renovacao=px.bar(h, x='porcentagem', y='estado_por_extenso', height=650,
+    orientation='h', color='reeleitos', #barmode='group', #color_continuous_scale='Tealgrn',
+    color_discrete_map={"% reeleição": '#21ADA8',
+    "% renovação": 'limegreen'},
+    labels=dict(estado_por_extenso="", porcentagem="%"))
+
+    #figura_estado.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'})
+    figura_estado_renovacao.update_yaxes(categoryarray=lista_rotulos_estados)
+    figura_estado_renovacao.update_layout(legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=1.02,
+        xanchor="right",
+        x=1), legend_title_text='')
+    st.plotly_chart(figura_estado_renovacao, use_container_width=True)
 
 
 st.title('Resultados por Partido 🏛️')
