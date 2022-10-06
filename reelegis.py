@@ -119,7 +119,7 @@ taxas_geral['Taxa de'] = rotulos_geral
 figura_pizza_geral=px.bar(taxas_geral,x="Porcentagem",y='Taxa', title='Reeleição x Renovação (2022)',
 orientation='h', color_continuous_scale='Tealgrn',color='Taxa de',
 color_discrete_map={"% reeleição": '#21ADA8',
-"% renovação": 'limegreen'},
+"% renovação": 'orange'},
 labels=dict(Taxa="", Porcentagem="%"))
 figura_pizza_geral.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'}, title_font_size=23)
 figura_pizza_geral.update_traces(width=.6)
@@ -278,7 +278,7 @@ if st.checkbox('Clique aqui', False):
     figura_estado_renovacao=px.bar(h, x='porcentagem', y='estado_por_extenso', height=650,
     orientation='h', color='reeleitos', #barmode='group', #color_continuous_scale='Tealgrn',
     color_discrete_map={"% reeleição": '#21ADA8',
-    "% renovação": 'limegreen'},
+    "% renovação": 'orange'},
     labels=dict(estado_por_extenso="", porcentagem="%"))
 
     #figura_estado.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'})
@@ -467,7 +467,7 @@ if uf_escolha != '':
         figura_pizza_geral=px.bar(taxas_geral,x="Porcentagem",y='Taxa', title=f'Reeleição x Renovação em {uf_escolha}',
         orientation='h', color_continuous_scale='Tealgrn',color='Taxa de',
         color_discrete_map={"% reeleição": '#21ADA8',
-        "% renovação": 'limegreen'},
+        "% renovação": 'orange'},
         labels=dict(Taxa="", Porcentagem="%"))
         figura_pizza_geral.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'})
         figura_pizza_geral.update_traces(width=.6)
@@ -646,7 +646,7 @@ if uf_escolha != '':
         figura_pizza_geral=px.bar(taxas_geral,x="Porcentagem",y='Taxa', title=f'Reeleição x Renovação em {uf_escolha}',
         orientation='h', color_continuous_scale='Tealgrn',color='Taxa de',
         color_discrete_map={"% reeleição": '#21ADA8',
-        "% renovação": 'limegreen'},
+        "% renovação": 'orange'},
         labels=dict(Taxa="", Porcentagem="%"))
         figura_pizza_geral.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'})
         figura_pizza_geral.update_traces(width=.6)
