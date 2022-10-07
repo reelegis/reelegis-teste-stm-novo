@@ -472,7 +472,7 @@ if uf_escolha != '':
         labels=dict(Taxa="", Porcentagem="% Porcentagem"))
         figura_pizza.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'})
         figura_pizza.update_traces(width=.6)
-        st.info(f'Dos **{total_reeleicao}** parlamentares que concorreram à reeleição, **17%** conseguiram uma cadeira na Câmara dos Deputados. Esse resultado representa **{round(100-taxa_de_reeleicao_geral)}%** das **8** cadeiras na Câmara dos Deputados para o Estado.')
+        st.info(f'Dos **{total_reeleicao}** parlamentares que concorreram à reeleição, **17%** conseguiram uma cadeira na Câmara dos Deputados. Esse resultado representa **13%** das **8** cadeiras na Câmara dos Deputados para o Estado.')
         figura_pizza.update_layout(legend=dict(
             orientation="h",
             yanchor="bottom",
