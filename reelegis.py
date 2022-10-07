@@ -30,7 +30,7 @@ st.text('Última atualização em 05/10/2022')
 
 #st.markdown('No dia 2 de outubro de 2022 você foi às urnas escolher o futuro da nação. Foi uma oportunidade valiosa para escolher como será a nova composição do Congresso Nacional. A Plataforma reeLegis te mostra o que os Deputados e as Deputadas federais reeleitos em 2022 apresentaram suas propostas. Com o uso de aprendizagem computacional, a plataforma permite analisar e comparar a atuação de todos os Deputados e Deputadas Federais que buscam a reeleição. **E aí, reelegeu ou renovou?**')
 
-st.markdown('No dia 2 de outubro de 2022 você foi às urnas escolher o futuro da nação. Foi uma oportunidade valiosa para escolher a nova composição do Congresso Nacional. A Plataforma reeLegis espera ter te ajudado nessa decisão! Agora, vamos lhe mostrar os Deputados e Deputadas federais reeleitos. E aí, reelegeu ou renovou?')
+st.markdown('No dia 2 de outubro de 2022 você foi às urnas decidir o futuro da nação. Foi uma oportunidade valiosa para escolher a nova composição do Congresso Nacional. Esperamos que o reeLegis espera tenha te ajudado nessa decisão! Agora, vamos lhe mostrar os Deputados e Deputadas federais reeleitos. E aí, reelegeu ou renovou?')
 
 st.markdown('[Aqui, você pode retornar ao site.](https://reelegis.netlify.app)')
 
@@ -92,14 +92,15 @@ taxas = [['Sucesso',taxa_de_reeleicao],['Sucesso', taxa_de_renovacao]]
 taxas = pd.DataFrame(taxas, columns=['Taxa', 'Porcentagem'])
 rotulos = ['% reeleitos', '% não reeleitos']
 taxas['Taxa de'] = rotulos
-figura_pizza=px.bar(taxas,x="Porcentagem",y='Taxa', title='Sucesso na reeleição (2022)',
+figura_pizza=px.bar(taxas,x="Porcentagem",y='Taxa', title='Sucesso na reeleição',
 orientation='h', color_continuous_scale='Tealgrn',color='Taxa de',
 color_discrete_map={"% reeleitos": '#21ADA8',
 "% não reeleitos": '#C0C0C0'},
 labels=dict(Taxa="", Porcentagem="%"))
 figura_pizza.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'}, title_font_size=23)
 figura_pizza.update_traces(width=.6)
-st.info(f'Dos **{total_reeleicao}** parlamentares que concorreram à reeleição, **{round(taxa_de_reeleicao)}%** conseguiram uma cadeira na Câmara dos Deputados. Esse resultado representa **{round(taxa_de_reeleicao_geral)}%** das 513 cadeiras da Câmara dos Deputados.')
+figura_pizza.update_layout(yaxis_visible=False, yaxis_showticklabels=False)
+st.info(f'Dos **{total_reeleicao}** parlamentares que concorreram à reeleição, **{round(taxa_de_reeleicao)}%** conseguiram uma cadeira na Câmara dos Deputados. Esse resultado representa **{round(taxa_de_reeleicao_geral)}%** das **513** cadeiras da Câmara dos Deputados.')
 #st.info(f'**{round(taxa_de_reeleicao)}%** dos parlamentares que concorreram à reeleição conseguiram uma cadeira na Câmara dos Deputados. Esse resultado representa **{round(taxa_de_reeleicao_geral)}%** das 513 cadeiras da Câmara dos Deputados.') #A Câmara dos Deputados foi renovada em **{round(taxa_de_renovacao)}%**.')
 #st.info(f"Nas eleições de 2022, **{round(taxa_de_reeleicao)}%** dos parlamentares concorrendo à reeleição conseguiram se reeleger. Consequentemente, o Congresso Nacional foi renovado em **{round(taxa_de_renovacao)}%**.")
 figura_pizza.update_layout(legend=dict(
@@ -108,6 +109,7 @@ figura_pizza.update_layout(legend=dict(
     y=1.02,
     xanchor="right",
     x=1), legend_title_text='')
+figura_pizza.add_vline(x=50, line_dash="dash", line_color="red")
 st.plotly_chart(figura_pizza, use_container_width=True)
 
 taxa_de_renovacao_geral = 100 -taxa_de_reeleicao_geral
@@ -118,7 +120,7 @@ rotulos_geral = ['% reeleição', '% renovação']
 #taxas_geral = ['% reeleição', '% renovação']
 taxas_geral['Taxa de'] = rotulos_geral
 
-figura_pizza_geral=px.bar(taxas_geral,x="Porcentagem",y='Taxa', title='Reeleição x Renovação (2022)',
+figura_pizza_geral=px.bar(taxas_geral,x="Porcentagem",y='Taxa', title='Reeleição x Renovação',
 orientation='h', color_continuous_scale='Tealgrn',color='Taxa de',
 color_discrete_map={"% reeleição": '#21ADA8',
 "% renovação": 'orange'},
@@ -131,6 +133,8 @@ figura_pizza_geral.update_layout(legend=dict(
     y=1.02,
     xanchor="right",
     x=1), legend_title_text='')
+figura_pizza_geral.update_layout(yaxis_visible=False, yaxis_showticklabels=False)
+figura_pizza_geral.add_vline(x=50, line_dash="dash", line_color="red")
 
 st.plotly_chart(figura_pizza_geral, use_container_width=True)
 
@@ -236,6 +240,8 @@ figura_estado.update_layout(legend=dict(
     y=1.02,
     xanchor="right",
     x=1), legend_title_text='')
+figura_estado.add_vline(x=50, line_dash="dash", line_color="red")
+
 st.plotly_chart(figura_estado, use_container_width=True)
 
     ###
@@ -297,9 +303,10 @@ if st.checkbox('Clique aqui', False):
     min_estado = max_min_estado.iloc[:-1]
     estado_com_maior_taxa = max_estado['estado_por_extenso'].iloc[0]
     estado_com_menor_taxa = max_min_estado['estado_por_extenso'].iloc[-1]
-    minimo = round(min(max_min_estado['porcentagem_sucesso']))
+    minimo = round(min(max_min_estado['porcentagem_sucesso_com_cadeiras']))
 
     st.info(f'A Unidade Federativa com maior taxa de renovação é **{estado_com_menor_taxa}**, com **{100-minimo}%** de renovação na Câmara dos Deputados.')
+    figura_estado_renovacao.add_vline(x=50, line_dash="dash", line_color="red")
 
     st.plotly_chart(figura_estado_renovacao, use_container_width=True)
 
@@ -386,6 +393,7 @@ figura_partido.update_layout(legend=dict(
 #
 # """) # #tendo uma renovação de **{100-minimo_partido}%**.
 st.info(f'**{porcentagem_partido_max}%** dos candidatos à reeleição do **{partido_com_maior_taxa}** tiveram sucesso. Em contrapartida, o **{partido_com_menor_taxa}** teve menor taxa de sucesso, com **{minimo_partido}%** dos deputados e deputadas reeleitos.')
+figura_partido.add_vline(x=50, line_dash="dash", line_color="red")
 
 st.plotly_chart(figura_partido, use_container_width=True)
 
@@ -438,6 +446,9 @@ if uf_escolha != '':
     if uf_escolha == 'Acre':
         reeleicao_no_acre = reeleitos.loc[reeleitos.estado_por_extenso == 'Acre', :]
         st.title(f'Parlamentares reeleitos na Unidade Federativa **Acre**')
+        total = reeleicao_no_acre['nome_parlamentar'].unique()
+        total_reeleicao = len(total)
+
         reeleicao_no_acre_sim = reeleicao_no_acre[reeleicao_no_acre.reeleito == 'sim']
         acre = reeleicao_no_acre_sim[['nome_candaditado', 'partido_ext_sigla']]
         acre.rename(columns = {'nome_candaditado':'Parlamentar'}, inplace = True)
@@ -454,13 +465,14 @@ if uf_escolha != '':
         rotulos = ['% reeleitos', '% não reeleitos']
         taxas['Taxa de'] = rotulos
         figura_pizza=px.bar(taxas,x="Porcentagem",y='Taxa',
+        title='Sucesso na reeleição em Acre',
         orientation='h', color_continuous_scale='Tealgrn',color='Taxa de',
         color_discrete_map={"% reeleitos": '#21ADA8',
         "% não reeleitos": '#C0C0C0'},
         labels=dict(Taxa="", Porcentagem="% Porcentagem"))
         figura_pizza.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'})
         figura_pizza.update_traces(width=.6)
-        st.info(f'**17%** dos deputados e deputadas que tentaram a reeleição conseguiram uma vaga. O estado agora conta com **{round(taxa_de_reeleicao_geral)}%** de reeleitos na Câmara dos Deputados. Uma renovação de de **{round(100-taxa_de_reeleicao_geral)}%**.')
+        st.info(f'Dos **{total_reeleicao}** parlamentares que concorreram à reeleição, **17%** conseguiram uma cadeira na Câmara dos Deputados. Esse resultado representa **{round(100-taxa_de_reeleicao_geral)}%** das **8** cadeiras na Câmara dos Deputados para o Estado.')
         figura_pizza.update_layout(legend=dict(
             orientation="h",
             yanchor="bottom",
@@ -468,6 +480,10 @@ if uf_escolha != '':
             xanchor="right",
             x=1
         ), legend_title_text='')
+        figura_pizza.add_vline(x=50, line_dash="dash", line_color="red")
+
+        figura_pizza.update_layout(yaxis_visible=False, yaxis_showticklabels=False)
+
         st.plotly_chart(figura_pizza, use_container_width=True)
 
         ######## renovacao ############
@@ -489,6 +505,9 @@ if uf_escolha != '':
             y=1.02,
             xanchor="right",
             x=1), legend_title_text='')
+        figura_pizza_geral.update_layout(yaxis_visible=False, yaxis_showticklabels=False)
+        figura_pizza_geral.add_vline(x=50, line_dash="dash", line_color="red")
+
         st.plotly_chart(figura_pizza_geral, use_container_width=True)
 
 
@@ -573,6 +592,7 @@ if uf_escolha != '':
         st.info(f"""
         O **Republicanos ( REPUBLICANOS )** teve uma taxa de **100%** de reeleição.
         """)
+        figura_partido.add_vline(x=50, line_dash="dash", line_color="red")
 
         st.plotly_chart(figura_partido, use_container_width=True)
 
@@ -582,7 +602,6 @@ if uf_escolha != '':
         enfase_acre = enfase.loc[enfase.nomeUrna == 'Antônia Lucia ( REPUBLICANOS )', :]
         enfase_acre.prop_mean = enfase_acre.prop_mean * 100
         estado_parla = px.bar(enfase_acre, x='prop_mean', y='label_pt', height=500, color='prop_mean',
-        title='Sucesso na reeleição (2022)',
         #color_continuous_scale=px.colors.sequential.Viridis,
         color_continuous_scale='Sunsetdark',
         # site com as cores: https://plotly.com/python/builtin-colorscales/
@@ -609,6 +628,9 @@ if uf_escolha != '':
     else:
         reeleicao_no_estado = reeleitos.loc[reeleitos.estado_por_extenso == uf_escolha, :]
         st.title(f'Parlamentares reeleitos na Unidade Federativa **{uf_escolha}**')
+        total = reeleicao_no_estado['nome_parlamentar'].unique()
+        total_reeleicao = len(total)
+
 
         se_reelegeu = reeleicao_no_estado[reeleicao_no_estado.reeleito == 'sim'].count()
         n_divisao = len(reeleicao_no_estado)
@@ -622,7 +644,7 @@ if uf_escolha != '':
         taxas = pd.DataFrame(taxas, columns=['Taxa', 'Porcentagem'])
         rotulos = ['% reeleitos', '% não reeleitos']
         taxas['Taxa de'] = rotulos
-        figura_pizza=px.bar(taxas,x="Porcentagem",y='Taxa', title='Sucesso na reeleição (2022)',
+        figura_pizza=px.bar(taxas,x="Porcentagem",y='Taxa', title=f'Sucesso na reeleição em {uf_escolha}',
         orientation='h', color_continuous_scale='Tealgrn',color='Taxa de',
         color_discrete_map={"% reeleitos": '#21ADA8',
         "% não reeleitos": '#C0C0C0'},
@@ -645,7 +667,12 @@ if uf_escolha != '':
         # st.info(f"""
         #     A Unidade Federativa **{uf_escolha}** teve uma taxa de **reeleição** de **{round(tx_estado)}%**. O estado agora conta com **{round(100-tx_estado)}%** de **renovação** na Câmara dos Deputados.
         #     """)
-        st.info(f'**{round(tx_estado)}%** dos deputados e deputadas que tentaram a reeleição conseguiram uma vaga. O estado agora conta com **{round(taxa_de_reeleicao_geral)}%** de reeleitos na Câmara dos Deputados. Uma renovação de de **{round(100-taxa_de_reeleicao_geral)}%**.')
+
+        st.info(f'Dos **{total_reeleicao}** parlamentares que concorreram à reeleição, **{round(tx_estado)}%** conseguiram uma cadeira na Câmara dos Deputados. Esse resultado representa **{round(taxa_de_reeleicao_geral)}%** das **{round(cadeiras)}** na Câmara dos Deputados para o Estado.')
+        #st.info(f'**{round(tx_estado)}%** dos deputados e deputadas que tentaram a reeleição conseguiram uma vaga. O estado agora conta com **{round(taxa_de_reeleicao_geral)}%** de reeleitos na Câmara dos Deputados. Uma renovação de **{round(100-taxa_de_reeleicao_geral)}%**.')
+        figura_pizza.update_layout(yaxis_visible=False, yaxis_showticklabels=False)
+        figura_pizza.add_vline(x=50, line_dash="dash", line_color="red")
+
         st.plotly_chart(figura_pizza, use_container_width=True)
 
 
@@ -669,6 +696,9 @@ if uf_escolha != '':
             xanchor="right",
             x=1
         ), legend_title_text='')
+        figura_pizza_geral.update_layout(yaxis_visible=False, yaxis_showticklabels=False)
+        figura_pizza_geral.add_vline(x=50, line_dash="dash", line_color="red")
+
         st.plotly_chart(figura_pizza_geral, use_container_width=True)
 
 
@@ -780,6 +810,7 @@ if uf_escolha != '':
         st.info(f"""
         **{s}** reelegeram **{porcentagem_partido_max}%** dos deputados e deputadas que tentaram a reeleição. Em contrapartida, **{s2}** tiveram menor sucesso de reeleição, com **{minimo_partido}%** de sucesso dos candidatos que tentaram se reeleger.
         """)
+        figura_partido.add_vline(x=50, line_dash="dash", line_color="red")
 
         st.plotly_chart(figura_partido, use_container_width=True)
 
@@ -819,7 +850,7 @@ if uf_escolha != '':
         st.plotly_chart(estado_parla, use_container_width=True)
 
 st.header('📢  Conta pra gente!')
-st.warning('Fique à vontade para nos informar sobre algo que queria ter visto nesta aba ou sobre a plataforma, para melhorarmos no futuro!')
+st.warning('Fique à vontade para nos contar o que achou da plataforma ou se sentiu falta de algo. Queremos melhorar!')
 contact_form = """
             <form action="https://formsubmit.co/reelegis@gmail.com" method="POST">
             <input type="hidden" name="_captcha" value="false">
@@ -837,4 +868,4 @@ def local_css(file_name):
 local_css("style.css")
 
 
-            #st.info(f'**{escolha_parlamentar_do_estado}** apresentou **{str(n_proposta_uf)} propostas legislativas** ao total. A maior ênfase temática d{genero.index[0]} foi **{saliente_uf.index[0]}**, com aproximadamente **{first}% do total.**')
+    
