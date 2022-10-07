@@ -97,7 +97,7 @@ orientation='h', color_continuous_scale='Tealgrn',color='Taxa de',
 color_discrete_map={"% reeleitos": '#21ADA8',
 "% não reeleitos": '#C0C0C0'},
 labels=dict(Taxa="", Porcentagem="%"))
-figura_pizza.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'}, title_font_size=23)
+figura_pizza.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'})
 figura_pizza.update_traces(width=.6)
 figura_pizza.update_layout(yaxis_visible=False, yaxis_showticklabels=False)
 st.info(f'Dos **{total_reeleicao}** parlamentares que concorreram à reeleição, **{round(taxa_de_reeleicao)}%** conseguiram uma cadeira na Câmara dos Deputados. Esse resultado representa **{round(taxa_de_reeleicao_geral)}%** das **513** cadeiras da Câmara dos Deputados.')
@@ -125,7 +125,7 @@ orientation='h', color_continuous_scale='Tealgrn',color='Taxa de',
 color_discrete_map={"% reeleição": '#21ADA8',
 "% renovação": 'orange'},
 labels=dict(Taxa="", Porcentagem="%"))
-figura_pizza_geral.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'}, title_font_size=23)
+figura_pizza_geral.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'})
 figura_pizza_geral.update_traces(width=.6)
 figura_pizza_geral.update_layout(legend=dict(
     orientation="h",
@@ -204,7 +204,7 @@ h = pd.concat([novos_estados_sucesso,novos_estados_sem_sucesso])
 rotulos_estados = por_estado.sort_values(by= 'porcentagem_sucesso', ascending=True)
 lista_rotulos_estados = rotulos_estados['estado_por_extenso']
     ## grafico
-figura_estado=px.bar(h, x='porcentagem', y='estado_por_extenso', height=650,
+figura_estado=px.bar(h, x='porcentagem', y='estado_por_extenso', height=650, title = 'Sucesso na reeleição',
 orientation='h', color='reeleitos', #barmode='group', #color_continuous_scale='Tealgrn',
 color_discrete_map={"% reeleitos": '#21ADA8',
 "% não reeleitos": '#C0C0C0'},
@@ -283,7 +283,7 @@ if st.checkbox('Clique aqui', False):
     rotulos_estados = por_estado.sort_values(by= 'porcentagem_sucesso_com_cadeiras', ascending=False)
     lista_rotulos_estados = rotulos_estados['estado_por_extenso']
 
-    figura_estado_renovacao=px.bar(h, x='porcentagem', y='estado_por_extenso', height=650,
+    figura_estado_renovacao=px.bar(h, x='porcentagem', y='estado_por_extenso', height=650, title='Reeleição x Renovação',
     orientation='h', color='reeleitos', #barmode='group', #color_continuous_scale='Tealgrn',
     color_discrete_map={"% reeleição": '#21ADA8',
     "% renovação": 'orange'},
@@ -373,7 +373,7 @@ minimo_partido = round(min(max_min_partido['porcentagem_sucesso']))
 
 porcentagem_partido_max= int(max_partido['porcentagem_sucesso'].iloc[:1])
     #porcentagem_estado_min= int(min_estado['porcentagem_sucesso'].iloc[:-1])
-figura_partido=px.bar(pl, x='porcentagem', y='partido_ext_sigla', height=650,
+figura_partido=px.bar(pl, x='porcentagem', y='partido_ext_sigla', height=650, title = 'Sucesso na reeleição',
 orientation='h', color='reeleitos', #barmode='group', #color_continuous_scale='Tealgrn',
 color_discrete_map={"% reeleitos": '#21ADA8',
 "% não reeleitos": '#C0C0C0'},
@@ -575,7 +575,7 @@ if uf_escolha != '':
         pl = pl.dropna()
         #st.table(pl)
             #porcentagem_estado_min= int(min_estado['porcentagem_sucesso'].iloc[:-1])
-        figura_partido=px.bar(pl, x='porcentagem', y='partido_ext_sigla', height=400,
+        figura_partido=px.bar(pl, x='porcentagem', y='partido_ext_sigla', height=400,title = 'Sucesso na reeleição',
         orientation='h', color='reeleitos', #barmode='group', #color_continuous_scale='Tealgrn',
         color_discrete_map={"% reeleitos": '#21ADA8',
         "% não reeleitos": '#C0C0C0'},
@@ -590,7 +590,7 @@ if uf_escolha != '':
             x=1
         ), legend_title_text='')
         st.info(f"""
-        O **Republicanos ( REPUBLICANOS )** teve uma taxa de **100%** de reeleição.
+        **Republicanos ( REPUBLICANOS )** reelegeu **100%** dos deputados e deputadas que tentaram a reeleição. Em contrapartida, **Partido dos Trabalhadores ( PT ), Partido Democrático Trabalhista ( PDT ), Partido Comunista do Brasil ( PCdoB ), Movimento Democrático Brasileiro ( MDB )**, tiveram menor sucesso de reeleição, com **0%** de sucesso dos candidatos que tentaram se reeleger.
         """)
         figura_partido.add_vline(x=50, line_dash="dash", line_color="red")
 
@@ -783,7 +783,7 @@ if uf_escolha != '':
         pl = pl.dropna()
         #st.table(pl)
             #porcentagem_estado_min= int(min_estado['porcentagem_sucesso'].iloc[:-1])
-        figura_partido=px.bar(pl, x='porcentagem', y='partido_ext_sigla', height=400,
+        figura_partido=px.bar(pl, x='porcentagem', y='partido_ext_sigla', height=400, title = 'Sucesso na reeleição',
         orientation='h', color='reeleitos', #barmode='group', #color_continuous_scale='Tealgrn',
         color_discrete_map={"% reeleitos": '#21ADA8',
         "% não reeleitos": '#C0C0C0'},
@@ -867,5 +867,3 @@ def local_css(file_name):
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 local_css("style.css")
 
-
-            #st.info(f'**{escolha_parlamentar_do_estado}** apresentou **{str(n_proposta_uf)} propostas legislativas** ao total. A maior ênfase temática d{genero.index[0]} foi **{saliente_uf.index[0]}**, com aproximadamente **{first}% do total.**')
