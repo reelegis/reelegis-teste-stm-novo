@@ -668,7 +668,7 @@ if uf_escolha != '':
         #     A Unidade Federativa **{uf_escolha}** teve uma taxa de **reeleição** de **{round(tx_estado)}%**. O estado agora conta com **{round(100-tx_estado)}%** de **renovação** na Câmara dos Deputados.
         #     """)
 
-        st.info(f'Dos **{total_reeleicao}** parlamentares que concorreram à reeleição, **{round(tx_estado)}%** conseguiram uma cadeira na Câmara dos Deputados. Esse resultado representa **{round(taxa_de_reeleicao_geral)}%** das **{round(cadeiras)}** na Câmara dos Deputados para o Estado.')
+        st.info(f'Dos **{total_reeleicao}** parlamentares que concorreram à reeleição, **{round(tx_estado)}%** conseguiram uma cadeira na Câmara dos Deputados. Esse resultado representa **{round(taxa_de_reeleicao_geral)}%** das **{round(cadeiras)}** cadeiras na Câmara dos Deputados para o Estado.')
         #st.info(f'**{round(tx_estado)}%** dos deputados e deputadas que tentaram a reeleição conseguiram uma vaga. O estado agora conta com **{round(taxa_de_reeleicao_geral)}%** de reeleitos na Câmara dos Deputados. Uma renovação de **{round(100-taxa_de_reeleicao_geral)}%**.')
         figura_pizza.update_layout(yaxis_visible=False, yaxis_showticklabels=False)
         figura_pizza.add_vline(x=50, line_dash="dash", line_color="red")
@@ -868,4 +868,4 @@ def local_css(file_name):
 local_css("style.css")
 
 
-    
+            #st.info(f'**{escolha_parlamentar_do_estado}** apresentou **{str(n_proposta_uf)} propostas legislativas** ao total. A maior ênfase temática d{genero.index[0]} foi **{saliente_uf.index[0]}**, com aproximadamente **{first}% do total.**')
