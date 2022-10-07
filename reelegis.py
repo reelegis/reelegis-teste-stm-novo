@@ -26,11 +26,11 @@ with col2:
 
 st.text("Versão beta 🐟 v.0.0.5")
 
-st.text('Última atualização em 05/10/2022')
+st.text('Última atualização em 07/10/2022')
 
 #st.markdown('No dia 2 de outubro de 2022 você foi às urnas escolher o futuro da nação. Foi uma oportunidade valiosa para escolher como será a nova composição do Congresso Nacional. A Plataforma reeLegis te mostra o que os Deputados e as Deputadas federais reeleitos em 2022 apresentaram suas propostas. Com o uso de aprendizagem computacional, a plataforma permite analisar e comparar a atuação de todos os Deputados e Deputadas Federais que buscam a reeleição. **E aí, reelegeu ou renovou?**')
 
-st.markdown('No dia 2 de outubro de 2022 você foi às urnas decidir o futuro da nação. Foi uma oportunidade valiosa para escolher a nova composição do Congresso Nacional. Esperamos que o reeLegis espera tenha te ajudado nessa decisão! Agora, vamos lhe mostrar os Deputados e Deputadas federais reeleitos. **E aí, reelegeu ou renovou?**')
+st.markdown('No dia 2 de outubro de 2022 você foi às urnas decidir o futuro da nação. Foi uma oportunidade valiosa para escolher a nova composição do Congresso Nacional. Esperamos que o reeLegis espera tenha te ajudado nessa decisão! Agora, vamos lhe mostrar os Deputados e Deputadas federais reeleitos. E aí, reelegeu ou renovou?')
 
 st.markdown('[Aqui, você pode retornar ao site.](https://reelegis.netlify.app)')
 
@@ -266,49 +266,49 @@ st.plotly_chart(figura_estado, use_container_width=True)
     # hover_name = "UF", #the information in the box
     # hover_data =["porcentagem_sucesso","lat","lon"])
     # st.plotly_chart(m)
-st.subheader('⬇️ Visualizar taxas de **Reeleição** e **Renovação** para as 513 cadeiras na Câmara dos Deputados para os Estados')
-if st.checkbox('Clique aqui', False):
-    reeleitos_por_estado = ["% reeleição"] * len(por_estado['estado_por_extenso'])
-    nao_reeleitos_por_estado = ["% renovação"] * len(por_estado['estado_por_extenso'])
+st.header('Taxas de **Renovação** na Câmara dos Deputados para as bancadas estaduais')
+#if st.checkbox('Clique aqui', False):
+reeleitos_por_estado = ["% reeleição"] * len(por_estado['estado_por_extenso'])
+nao_reeleitos_por_estado = ["% renovação"] * len(por_estado['estado_por_extenso'])
     #st.write(len(por_estado['estado_por_extenso']))
-    novos_estados_sucesso = por_estado[['estado_por_extenso', 'porcentagem_sucesso_com_cadeiras']]
-    novos_estados_sucesso['reeleitos'] = reeleitos_por_estado
-    novos_estados_sucesso.rename(columns = {'porcentagem_sucesso_com_cadeiras':'porcentagem'}, inplace = True)
+novos_estados_sucesso = por_estado[['estado_por_extenso', 'porcentagem_sucesso_com_cadeiras']]
+novos_estados_sucesso['reeleitos'] = reeleitos_por_estado
+novos_estados_sucesso.rename(columns = {'porcentagem_sucesso_com_cadeiras':'porcentagem'}, inplace = True)
 
-    novos_estados_sem_sucesso = pd.DataFrame(por_estado[['estado_por_extenso', 'porcentagem_sem_sucesso_com_cadeiras']])
-    novos_estados_sem_sucesso['reeleitos'] = nao_reeleitos_por_estado
-    novos_estados_sem_sucesso.rename(columns = {'porcentagem_sem_sucesso_com_cadeiras':'porcentagem'}, inplace = True)
-    h = pd.concat([novos_estados_sucesso,novos_estados_sem_sucesso])
+novos_estados_sem_sucesso = pd.DataFrame(por_estado[['estado_por_extenso', 'porcentagem_sem_sucesso_com_cadeiras']])
+novos_estados_sem_sucesso['reeleitos'] = nao_reeleitos_por_estado
+novos_estados_sem_sucesso.rename(columns = {'porcentagem_sem_sucesso_com_cadeiras':'porcentagem'}, inplace = True)
+h = pd.concat([novos_estados_sucesso,novos_estados_sem_sucesso])
 
-    rotulos_estados = por_estado.sort_values(by= 'porcentagem_sucesso_com_cadeiras', ascending=False)
-    lista_rotulos_estados = rotulos_estados['estado_por_extenso']
+rotulos_estados = por_estado.sort_values(by= 'porcentagem_sucesso_com_cadeiras', ascending=False)
+lista_rotulos_estados = rotulos_estados['estado_por_extenso']
 
-    figura_estado_renovacao=px.bar(h, x='porcentagem', y='estado_por_extenso', height=650, title='Reeleição x Renovação',
-    orientation='h', color='reeleitos', #barmode='group', #color_continuous_scale='Tealgrn',
-    color_discrete_map={"% reeleição": '#21ADA8',
-    "% renovação": 'orange'},
-    labels=dict(estado_por_extenso="", porcentagem="%"))
+figura_estado_renovacao=px.bar(h, x='porcentagem', y='estado_por_extenso', height=650, title='Reeleição x Renovação',
+orientation='h', color='reeleitos', #barmode='group', #color_continuous_scale='Tealgrn',
+color_discrete_map={"% reeleição": '#21ADA8',
+"% renovação": 'orange'},
+labels=dict(estado_por_extenso="", porcentagem="%"))
 
     #figura_estado.update_layout(showlegend=True, yaxis={'categoryorder': 'total ascending'})
-    figura_estado_renovacao.update_yaxes(categoryarray=lista_rotulos_estados)
-    figura_estado_renovacao.update_layout(legend=dict(
-        orientation="h",
-        yanchor="bottom",
-        y=1.02,
-        xanchor="right",
-        x=1), legend_title_text='')
-    max_min_estado = por_estado.sort_values(by= 'porcentagem_sucesso_com_cadeiras', ascending=False)
+figura_estado_renovacao.update_yaxes(categoryarray=lista_rotulos_estados)
+figura_estado_renovacao.update_layout(legend=dict(
+    orientation="h",
+    yanchor="bottom",
+    y=1.02,
+    xanchor="right",
+    x=1), legend_title_text='')
+max_min_estado = por_estado.sort_values(by= 'porcentagem_sucesso_com_cadeiras', ascending=False)
 
-    max_estado = max_min_estado.iloc[:1]
-    min_estado = max_min_estado.iloc[:-1]
-    estado_com_maior_taxa = max_estado['estado_por_extenso'].iloc[0]
-    estado_com_menor_taxa = max_min_estado['estado_por_extenso'].iloc[-1]
-    minimo = round(min(max_min_estado['porcentagem_sucesso_com_cadeiras']))
+max_estado = max_min_estado.iloc[:1]
+min_estado = max_min_estado.iloc[:-1]
+estado_com_maior_taxa = max_estado['estado_por_extenso'].iloc[0]
+estado_com_menor_taxa = max_min_estado['estado_por_extenso'].iloc[-1]
+minimo = round(min(max_min_estado['porcentagem_sucesso_com_cadeiras']))
 
-    st.info(f'A Unidade Federativa com maior taxa de renovação é **{estado_com_menor_taxa}**, com **{100-minimo}%** de renovação na Câmara dos Deputados.')
-    figura_estado_renovacao.add_vline(x=50, line_dash="dash", line_color="red")
+st.info(f'A Unidade Federativa com maior taxa de renovação é **{estado_com_menor_taxa}**, com **{100-minimo}%** de renovação na Câmara dos Deputados.')
+figura_estado_renovacao.add_vline(x=50, line_dash="dash", line_color="red")
 
-    st.plotly_chart(figura_estado_renovacao, use_container_width=True)
+st.plotly_chart(figura_estado_renovacao, use_container_width=True)
 
 
 st.title('Resultados por Partido 🏛️')
@@ -513,7 +513,7 @@ if uf_escolha != '':
 
         acre = pd.DataFrame(acre).set_index('Parlamentar')
 
-        if st.checkbox('Veja os Parlamentares reeleitos no Estado', False):
+        if st.checkbox('⬅️ Veja os Parlamentares reeleitos no Estado', False):
             st.table(acre)
         st.header('Resultados do Partido no Estado')
         #### grafico por partido no estado
@@ -713,7 +713,7 @@ if uf_escolha != '':
         todos_estados = pd.DataFrame(geral_estados).set_index('Parlamentar')
         # todos_estados
         #todos_estados = todos_estados.rename_axis("limbs", axis="columns")
-        if st.checkbox('Veja os Parlamentares reeleitos no Estado', False):
+        if st.checkbox('⬅️ Veja os Parlamentares reeleitos no Estado', False):
             st.table(todos_estados)
         st.header('Resultados por Partido no Estado')
         #### grafico por partido no estado
@@ -867,3 +867,5 @@ def local_css(file_name):
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 local_css("style.css")
 
+
+            #st.info(f'**{escolha_parlamentar_do_estado}** apresentou **{str(n_proposta_uf)} propostas legislativas** ao total. A maior ênfase temática d{genero.index[0]} foi **{saliente_uf.index[0]}**, com aproximadamente **{first}% do total.**')
