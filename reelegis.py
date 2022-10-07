@@ -30,7 +30,7 @@ st.text('Última atualização em 05/10/2022')
 
 #st.markdown('No dia 2 de outubro de 2022 você foi às urnas escolher o futuro da nação. Foi uma oportunidade valiosa para escolher como será a nova composição do Congresso Nacional. A Plataforma reeLegis te mostra o que os Deputados e as Deputadas federais reeleitos em 2022 apresentaram suas propostas. Com o uso de aprendizagem computacional, a plataforma permite analisar e comparar a atuação de todos os Deputados e Deputadas Federais que buscam a reeleição. **E aí, reelegeu ou renovou?**')
 
-st.markdown('No dia 2 de outubro de 2022 você foi às urnas decidir o futuro da nação. Foi uma oportunidade valiosa para escolher a nova composição do Congresso Nacional. Esperamos que o reeLegis espera tenha te ajudado nessa decisão! Agora, vamos lhe mostrar os Deputados e Deputadas federais reeleitos. E aí, reelegeu ou renovou?')
+st.markdown('No dia 2 de outubro de 2022 você foi às urnas decidir o futuro da nação. Foi uma oportunidade valiosa para escolher a nova composição do Congresso Nacional. Esperamos que o reeLegis espera tenha te ajudado nessa decisão! Agora, vamos lhe mostrar os Deputados e Deputadas federais reeleitos. **E aí, reelegeu ou renovou?**')
 
 st.markdown('[Aqui, você pode retornar ao site.](https://reelegis.netlify.app)')
 
