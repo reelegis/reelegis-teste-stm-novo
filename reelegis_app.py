@@ -11,7 +11,7 @@ import shutil
 from pathlib import Path
 
 # source venv/bin/activate
-col1, mid, col2 = st.beta_columns([4,1,20])
+col1, mid, col2 = st.columns([4,1,20])
 
 
 with col1:
